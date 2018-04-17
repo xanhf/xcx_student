@@ -4,7 +4,9 @@ var config = require('./config')
 let wxAPI =require('./utils/wxChat.js')
 
 App({
-  globalData: {},
+  globalData: {
+    wxAPI: wxAPI
+  },
   onLaunch: function () {
         qcloud.setLoginUrl(config.service.loginUrl)
     },

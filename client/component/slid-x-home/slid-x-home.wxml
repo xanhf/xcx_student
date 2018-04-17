@@ -1,0 +1,22 @@
+<!--component/scrool-x-home/scrllo-x-home.wxml-->
+<view  class='scrool-x-home'>
+<swiper class= "swiper-container"  bindchange="swiperChange">
+<block wx:for="{{imageUrls}}" wx:key="{{item}}">
+    <swiper-item>
+    <view class='item-container'>
+     <view class='image-item'>
+      <image src="{{item}}" class="slide-image"/>
+    </view>
+    </view>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='indicator-text'>
+  <text class='indicator-select'>
+  {{select}}/
+  </text>
+  <text class='indicator-length'>
+  {{imageUrls.length}}
+  </text>
+</view>
+</view>

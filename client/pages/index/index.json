@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "component-slid-x-home": "../../component/slid-x-home/slid-x-home"
+  }
+}

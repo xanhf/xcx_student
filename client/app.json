@@ -27,13 +27,13 @@
     },
     {
       "pagePath": "pages/search/search",
-      "text": "阅读",
+      "text": "课程",
       "iconPath": "./images/hot.png",
       "selectedIconPath": "./images/hot_select.png"
     },
     {
       "pagePath": "pages/me/me",
-      "text": "音乐",
+      "text": "我的",
       "iconPath": "./images/me.png",
       "selectedIconPath": "./images/me_select.png"
     }
