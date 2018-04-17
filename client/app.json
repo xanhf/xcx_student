@@ -1,13 +1,47 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/addCgi/addCgi"
+    "pages/addCgi/addCgi",
+    "pages/home/home",
+    "pages/me/me",
+    "pages/search/search"
   ],
-  "window":{
-    "backgroundColor":"#F6F6F6",
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTextStyle": "black"
+  },
+"tabBar": {
+  "color": "#888",
+  "selectedColor": "#89bdf7",
+  "backgroundColor": "#fff",
+  "borderStyle": "white",
+  "list": [
+    {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "./images/home.png",
+      "selectedIconPath": "./images/home_select.png"
+    },
+    {
+      "pagePath": "pages/search/search",
+      "text": "阅读",
+      "iconPath": "./images/hot.png",
+      "selectedIconPath": "./images/hot_select.png"
+    },
+    {
+      "pagePath": "pages/me/me",
+      "text": "音乐",
+      "iconPath": "./images/me.png",
+      "selectedIconPath": "./images/me_select.png"
+    }
+  ]
+},
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }
