@@ -1,4 +1,5 @@
 /* component/scrool-x-home/scrllo-x-home.wxss */
+@import "../../template/home_type_0";
 .scrool-x-home{
    display: flex;
   flex-direction: column;
@@ -14,22 +15,7 @@
   background: white;
   height: 80%;
 }
-.image-item{
-  height: 100%;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  box-sizing: border-box;
- border:5px solid grey;
- border-radius: 10rpx;
- box-shadow: 0 60rpx 120rpx rgba(0, 0, 0, .4);
-}
-.slide-image{
-width: 90%;
-border-radius: 10rpx;
-}
+
 .indicator-text{
   width: 100%;
   display: flex;
@@ -43,10 +29,4 @@ border-radius: 10rpx;
 .indicator-length{
   color: black;
   display: inline-block
-}
-.item-container{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
 }

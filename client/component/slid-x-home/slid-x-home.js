@@ -15,7 +15,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-   select:1,
+   select:1
   },
 
   /**
@@ -28,6 +28,10 @@ Component({
       this.setData({
         select: this.select
       })
+    },
+    clickItem:function(event){
+      let data = event.currentTarget.dataset.click;
+      console.log(data);
     }
   }
 })

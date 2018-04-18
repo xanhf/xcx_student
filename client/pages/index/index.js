@@ -1,16 +1,15 @@
-var config = require('../../config')
+var serviceApi = require('../../utils/serviceAPI.js')
 Page( {
   data:{
-    imgUrls: [
-'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ]
+    imgUrls: []
   },
   onShow: function (options) {
-    // Do something when show.
-    getApp().globalData.wxAPI.getRequest(`${config.service.host}/weapp/demo`).then(res => { 
+    serviceApi.home().then(res => { 
       console.log(res)
+      this.data.imgUrls =res.data;
+      this.setData({
+        imgUrls: this.data.imgUrls
+      })
     }).catch(e => {
       console.log(e);
     })  

@@ -3,11 +3,8 @@
 <swiper class= "swiper-container"  bindchange="swiperChange">
 <block wx:for="{{imageUrls}}" wx:key="{{item}}">
     <swiper-item>
-    <view class='item-container'>
-     <view class='image-item'>
-      <image src="{{item}}" class="slide-image"/>
-    </view>
-    </view>
+     <import src="../../template/home_type_0.wxml"/>
+    <template is="home_type_0" data="{{...item}}"/>
     </swiper-item>
   </block>
 </swiper>

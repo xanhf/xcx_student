@@ -1,6 +1,7 @@
 
 // var Promise = require('../libs/es6-promise.js')
 /** 
+ * 微信相关
  * Promise化小程序接口 
  * Promise 调用then方法后会返回一个Promise使用return来返回  *下一个Promise对象来实现链式调用
  */
@@ -28,11 +29,14 @@ static  httpsPromisify(fn) {
   return function (obj = {}) {
     return new Promise((resolve, reject) => {
       obj.success = function (res) {
-        resolve(res)
-      }
-
+        if(res.statusCode==200){//访问成功
+          resolve(res.data)//返回的数据
+        }else{
+          reject(res.errMsg)
+        }
+      };
       obj.fail = function (res) {
-        reject(res)
+        reject(res.errMsg)
       }
       fn(obj)
     })

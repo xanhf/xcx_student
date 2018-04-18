@@ -1,0 +1,7 @@
+<template name = "home_type_0">
+<view class='item-container' data-click="{{next_url}}" bindtap="clickItem">
+     <view class='image-item'>
+      <image src="{{image}}" class="slide-image"/>
+    </view>
+    </view>
+</template>
