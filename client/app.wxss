@@ -1,4 +1,4 @@
-/**app.wxss**/
+         /**app.wxss  **/
 .container {
   box-sizing: border-box;
   width: 100%;
