@@ -1,0 +1,19 @@
+<!--答题模块的分类模板 滑块形式-->
+<template name = "class_questions_1">
+    <view class='class-container_1'>
+            <view class='calss-item-name'>
+             <view>{{item.calssName}} </view>
+             <block wx:if="{{item.isMore}}" data-click="{{qclass.id}}" bindtap="clickMore">
+                 <view class='more' >
+                查看更多
+                </view>
+            </block>
+            </view>
+            <scroll-view class='scrool-class-1' scroll-x>
+            <import src="./question_item_1.wxml"/>
+            <block wx:for="{{item.qList}}" wx:key="{{item.images}}">
+                <template is="question_item_1" data="{{...item}}"/>
+             </block>
+             </scroll-view>
+    </view>
+</template>

@@ -1,2 +1,12 @@
 <!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<view class='container'>
+<component-tab tabList="{{tabList}}" ></component-tab>
+<view class='tab-content'>
+ <import src="../../template/class_question_1.wxml"/>
+  <import src="../../template/class_question_0.wxml"/>
+  <import src="../../template/class_question_2.wxml"/>
+ <block wx:for="{{cList}}" wx:key="{{item.id}}">
+  <template is="class_questions_{{item.layType}}" data="{{item}}"/>
+ </block>
+</view>
+</view>

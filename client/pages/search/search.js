@@ -5,7 +5,113 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    tabList:["答题","视频"],
+    cList:[
+     {
+        layType:2,
+        id: "xxx",
+        calssName:"邵先生",
+        isMore:true,
+        qList: [
+          {
+            images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+            title: "张三家的傻孩子",
+            des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+            autho: "站衫",
+            id: "wwwww"
+          }, {
+            images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+            title: "张三家的傻孩子",
+            des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+            autho: "站衫",
+            id: "wwwww"
+          }, {
+            images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+            title: "张三家的傻孩子",
+            des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+            autho: "站衫",
+            id: "wwwww"
+          }, {
+            images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+            title: "张三家的傻孩子",
+            des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+            autho: "站衫",
+            id: "wwwww"
+          }, {
+            images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+            title: "张三家的傻孩子",
+            des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+            autho: "站衫",
+            id: "wwwww"
+          }, {
+            images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+            title: "张三家的傻孩子",
+            des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+            autho: "站衫",
+            id: "wwwww"
+          }, {
+            images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+            title: "张三家的傻孩子",
+            des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+            autho: "站衫",
+            id: "wwwww"
+          }
+        ]
+     },
+     {
+       layType: 0,
+       id: "xxx",
+       calssName: "类先生",
+       isMore: true,
+       qList: [
+         {
+           images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+           title: "张三家的傻孩子",
+           des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+           autho: "站衫",
+           id: "wwwww"
+         }
+       ]
+     }, {
+       layType: 1,
+       id: "xxx",
+       calssName: "类先生",
+       isMore: true,
+       qList: [
+         {
+           images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+           title: "张三家的傻孩子",
+           des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+           autho: "站衫",
+           id: "wwwww"
+         }, {
+           images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+           title: "张三家的傻孩子",
+           des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+           autho: "站衫",
+           id: "wwwww"
+         }, {
+           images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+           title: "张三家的傻孩子",
+           des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+           autho: "站衫",
+           id: "wwwww"
+         }, {
+           images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+           title: "张三家的傻孩子",
+           des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+           autho: "站衫",
+           id: "wwwww"
+         }, {
+           images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
+           title: "张三家的傻孩子",
+           des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
+           autho: "站衫",
+           id: "wwwww"
+         }
+       ]
+     }
+    ],
   },
 
   /**

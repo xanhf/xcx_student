@@ -1,0 +1,6 @@
+<!--component/tab/tab.wxml-->
+<view class="tab-header">
+    <block wx:for="{{tabList}}" wx:key="{{item}}">
+<view class="tab-header-item {{select == index ? 'tab-header-active' : ''}}" data-select="{{index}}" bindtap="changeViewType">{{item}}</view>
+    </block>
+</view>

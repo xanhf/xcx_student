@@ -1,3 +1,4 @@
+<!--首页大图片显示模板-->
 <template name = "home_type_0">
 <view class='item-container' data-click="{{next_url}}" bindtap="clickItem">
      <view class='image-item'>

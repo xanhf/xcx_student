@@ -1,0 +1,18 @@
+<!--答题模块的分类模板 列表形式-->
+<template name = "class_questions_0">
+    <view class='class-container'>
+            <view class='calss-item-name'>
+             <view>{{item.calssName}} </view>
+             <block wx:if="{{item.isMore}}" data-click="{{qclass.id}}" bindtap="clickMore">
+                 <view class='more' >
+                查看更多
+                </view>
+            </block>
+            </view>
+            <import src="./questions_item.wxml"/>
+            <block wx:for="{{item.qList}}" wx:key="{{item.images}}">
+                <template is="questions_item" data="{{...item}}"/>
+             </block>
+    </view>
+ 
+</template>

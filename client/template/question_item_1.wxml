@@ -1,0 +1,13 @@
+<!--答题条目模板2 .图片下面加title和标签-->
+<template name = "question_item_1">
+<view class='question_item_1 {{type==2?"question_2":""}}'>
+      <image class='question_image_1' src='{{images}}'>
+      </image>
+      <view class='question_title_1'>
+      {{title}}
+      </view>
+      <view class='question_class_1'>
+      {{autho}}
+      </view>
+</view>
+</template>

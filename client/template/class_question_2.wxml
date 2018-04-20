@@ -1,0 +1,23 @@
+<!--答题模块的分类模板  单一列表+流模式形式-->
+<template name = "class_questions_2">
+    <view class='class-container_2'>
+            <view class='calss-item-name'>
+             <view>{{item.calssName}} </view>
+             <block wx:if="{{item.isMore}}" data-click="{{qclass.id}}" bindtap="clickMore">
+                 <view class='more' >
+                查看更多
+                </view>
+            </block>
+            </view>
+            <import src="./question_item_1.wxml"/>
+            <import src="./questions_item.wxml"/>
+            <block wx:for="{{item.qList}}" wx:key="{{item.images}}">
+                  <block wx:if="{{index ==0}}">
+ <template is="questions_item" data="{{...item,type:2}}"/>
+ </block>
+ <block wx:else>
+    <template is="question_item_1" data="{{...item,type:2}}"/>
+ </block> 
+             </block>
+    </view>
+</template>

@@ -1,4 +1,7 @@
 // component/scrool-x-home/scrllo-x-home.js
+/**
+ * 首页轮播广告的组件
+ */
 Component({
   /**
    * 组件的属性列表
@@ -8,7 +11,6 @@ Component({
       type:Array,
       value:[],
     }
-
   },
 
   /**

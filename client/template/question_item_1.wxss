@@ -1,0 +1,27 @@
+.question_item_1{
+  display: inline-flex;
+  flex-direction: column;
+  margin-right: 20rpx;
+  width: 29%;
+  position: relative;
+}
+.question_item_1:first-child{
+  margin-left: 20rpx;
+}
+.question_image_1{
+  width: 100%;
+  height: 300rpx;
+  box-shadow: 5rpx 5rpx 5rpx rgba(0, 0, 0, .2);
+}
+.question_title_1{
+  font-size: 20rpx;
+  font-weight: bold;
+}
+.question_class_1{
+  font-size: 15rpx;
+}
+.question_2{
+  margin-left: 20rpx;
+  margin-right: 0;
+  margin-bottom:5rpx;
+}
