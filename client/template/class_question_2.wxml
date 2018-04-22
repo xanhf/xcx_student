@@ -3,10 +3,12 @@
     <view class='class-container_2'>
             <view class='calss-item-name'>
              <view>{{item.calssName}} </view>
-             <block wx:if="{{item.isMore}}" data-click="{{qclass.id}}" bindtap="clickMore">
-                 <view class='more' >
+             <block wx:if="{{item.isMore}}">
+               <navigator class='more'  url="../questionList/questionList?id={{qclass.id}}">
+                 <view >
                 查看更多
                 </view>
+                </navigator>
             </block>
             </view>
             <import src="./question_item_1.wxml"/>

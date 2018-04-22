@@ -8,6 +8,7 @@
       {{des}}
       </view>
 </view>
+<navigator url='../questionReview/questionReview'>
 <view class='question-detail-review'>
 <view class='introduction-title qview'>
 题目预览
@@ -16,4 +17,5 @@
 共{{qnum}}个题目
 </view>
 </view>
+</navigator>
 </template>

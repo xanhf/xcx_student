@@ -1,0 +1,10 @@
+/* pages/questionReview/questionReview.wxss */
+.question-review-list{
+  padding: 20rpx;
+}
+.question-review-item{
+  height: 100rpx;
+  border-bottom:1px solid #e1e1e1;
+  display: flex;
+  align-items: center;
+}

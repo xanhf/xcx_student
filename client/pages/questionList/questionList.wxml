@@ -1,2 +1,7 @@
-<!--pages/questionList/questionList.wxml-->
-<text>pages/questionList/questionList.wxml</text>
+<!--pages/questionList/questionList.wxml 分类列表页面-->
+<view class='question-list'>
+ <import src="../../template/questions_item.wxml"/>
+ <block wx:for="{{qList}}" wx:key="{{item.images}}">
+                <template is="questions_item" data="{{...item}}"/>
+             </block>
+</view>
