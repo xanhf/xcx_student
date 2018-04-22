@@ -1,0 +1,13 @@
+/* component/comments/comments.wxss */
+@import "../../template/comment_item";
+.comments-container{
+background: white;
+margin-bottom:95rpx;
+padding-top:10rpx;
+
+}
+.comment-title{
+padding-left: 20rpx;
+font-weight:bold;
+font-size:35rpx;
+}

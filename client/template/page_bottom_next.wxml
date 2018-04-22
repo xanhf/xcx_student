@@ -1,0 +1,13 @@
+  <template name = "page_bottom_next">
+<view class='page-bottom'>
+<view class='praise'>
+有用
+</view>
+<view class='comment'>
+评论
+</view>
+<view class='start-next'>
+开始答题
+</view>
+</view>
+</template>

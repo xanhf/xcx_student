@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "component-comments": "../../component/comments/comments"
+  }
+}

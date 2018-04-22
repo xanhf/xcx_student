@@ -1,2 +1,10 @@
-<!--pages/questionDetails/questionDetails.wxml-->
-<text>pages/questionDetails/questionDetails.wxml</text>
+<!--pages/questionDetails/questionDetails.wxml question_detail_Introduction-->
+<view class='question-detail-container'>
+ <import src="../../template/question_detail.wxml"/>
+ <import src="../../template/question_detail_Introduction.wxml"/>
+  <import src="../../template/page_bottom_next.wxml"/>
+ <template is="question_detail" data="{{...qDetai}}"/>
+  <template is="question_detail_introduction" data="{{...qDetai}}"/>
+  <component-comments ></component-comments>
+  <template is="page_bottom_next" data="{{...qDetai}}"/>
+</view>

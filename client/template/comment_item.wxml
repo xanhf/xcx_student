@@ -1,0 +1,25 @@
+<!--答题模块的分类模板 滑块形式-->
+<template name="comment_item">
+  <view class='comment-item-container'>
+    <view class='comment-item-person'>
+      <view class='comment-item-person-info'>
+        <image class='comment-item-person-image' src='{{uimage}}'>
+        </image>
+        <view class='comment-item-person-monicker'>
+          <view class='comment-item-person-name'>
+            {{name}}
+          </view>
+          <view class='comment-item-person-address'>
+            {{address}}
+          </view>
+        </view>
+      </view>
+      <view class='comment-item-time'>
+        {{time}}
+      </view>
+    </view>
+    <view class='comment-item-text'>
+      {{container}}
+    </view>
+  </view>
+</template>

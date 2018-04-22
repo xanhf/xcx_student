@@ -1,0 +1,30 @@
+.page-bottom{
+  z-index: 99999;
+  position: fixed;
+  bottom: 0;
+  height: 90rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 20rpx;
+  background: white;
+  
+}
+.praise{
+font-size: 25rpx;
+}
+.comment{
+  font-size: 25rpx;
+}
+.start-next{
+  font-size: 30rpx;
+  background: green;
+  border-radius: 10rpx;
+  height: 70rpx;
+  width: 300rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,10 @@
+<!--component/comments/comments.wxml comment_item-->
+<view class='comments-container'>
+    <view class='comment-title'>
+    评论
+    </view>
+    <import src="../../template/comment_item.wxml"/>
+    <block wx:for="{{clist}}" wx:key="{{item.uimage}}">
+   <template is="comment_item" data="{{...item}}"/>
+    </block>
+</view>

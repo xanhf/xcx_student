@@ -1,0 +1,19 @@
+<!--题的详情模块 简介部分模版-->
+<template name = "question_detail_introduction">
+<view class='question-introduction'>
+      <view class='introduction-title'>
+      简介
+      </view>
+      <view class='introduction-des'>
+      {{des}}
+      </view>
+</view>
+<view class='question-detail-review'>
+<view class='introduction-title qview'>
+题目预览
+</view>
+<view class='question-review-text'>
+共{{qnum}}个题目
+</view>
+</view>
+</template>

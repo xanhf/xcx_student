@@ -1,0 +1,52 @@
+.comment-item-container{
+  background: white;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom:20rpx;
+  padding-top:20rpx;
+}
+.comment-item-person{
+  display: flex;
+  justify-content: space-between;
+}
+.comment-item-person-info{
+  display: flex;
+}
+.comment-item-person-image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  margin-right: 20rpx;
+}
+.comment-item-person-monicker{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.comment-item-person-name{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: black;
+}
+.comment-item-person-address{
+   font-size: 25rpx;
+   background: green;
+   border-radius: 5rpx;
+   padding-left: 10rpx;
+   padding-right: 10rpx;
+}
+.comment-item-time{
+  font-size: 25rpx;
+  color: gold;
+}
+.comment-item-text{
+  margin-left: 50rpx;
+  margin-top: 10rpx;
+  background: gray;
+  color: white;
+  font-size:30rpx;
+padding:10rpx;
+
+  
+}

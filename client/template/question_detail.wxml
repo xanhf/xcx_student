@@ -1,0 +1,27 @@
+<!--题的详情模块 头部模版-->
+  <template name = "question_detail">
+<view class='question_detail'>
+  <image class='question-detail-image' src='{{images}}'>
+  </image>
+  <view class='question-detail-info'>
+  <view class='question-detail-text question-detail-title '> 
+  {{title}}
+  </view>
+    <view class='question-detail-text'> 
+  {{autho}}
+  </view>
+    <view class='question-detail-text'> 
+  {{pnum}}人参与答题
+  </view>
+    <view class='question-detail-text'> 
+  题目所需时间{{qtime}}分钟
+  </view>
+  <view class='question-detail-text'> 
+  有{{qnum}}道题
+  </view>
+   <view class='question-detail-text'> 
+  平均分：{{qaverage}}分
+  </view>
+  </view>
+</view>
+</template>

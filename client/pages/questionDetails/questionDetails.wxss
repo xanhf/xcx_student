@@ -1,1 +1,7 @@
-/* pages/questionDetails/questionDetails.wxss */
+/* pages/questionDetails/questionDetails.wxss question_detail_Introduction */
+@import "../../template/question_detail.wxss";
+@import "../../template/question_detail_Introduction.wxss";
+@import "../../template/page_bottom_next.wxss";
+.question-detail-container{
+  background: gray
+}
