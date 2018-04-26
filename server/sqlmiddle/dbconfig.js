@@ -1,8 +1,12 @@
 /**
  * 关联数据库
  * config.db
+ * QUESTION
  */
 const { mysql: config } = require('../config')
+const fairies = "fairies";
+
+
 /**
  * 获取数据库配置
  * dbName = config.db默认是CAuthDB数据库
@@ -22,8 +26,10 @@ return {
 }
 };
 
-const CAuthDB = require('knex')(getDb(config.db))
+const CAuthDB = require('knex')(getDb(config.db));
+const FairiesDB = require('knex')(getDb(fairies))
 
 module.exports = {
-  cAuth:CAuthDB
+  cAuth:CAuthDB,
+  Fairies: FairiesDB
 }

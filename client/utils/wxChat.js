@@ -69,7 +69,7 @@ static getRequest(url, data ={}) {
 
 /**
  * 微信请求post方法封装
- * url
+ * url 
  * data 以对象的格式传入
  */
 static postRequest(url, data) {
@@ -83,6 +83,21 @@ static postRequest(url, data) {
     },
   })
 }
+static showLoading(text="加载中..."){
+  return new Promise((resolve, reject) => wx.showLoading({ title: text,mask:true, success: resolve, fail: reject }));
+}
+
+  static hideLoading(){
+    wx.hideLoading();
+}
+
+  static startRfresh(){
+    wx.startPullDownRefresh();
+  }
+
+  static stopRfresh(){
+    wx.stopPullDownRefresh();
+  }
 };
 
 module.exports = Wechat; 
