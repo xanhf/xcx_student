@@ -27,6 +27,7 @@ Component({
     changeViewType: function (event) {
       this.select = event.currentTarget.dataset.select;
       console.log(this.select);
+      this.triggerEvent('tabChange', this.select);
       this.setData({
         select: this.select
       })

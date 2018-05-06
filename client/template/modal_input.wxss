@@ -1,0 +1,15 @@
+.modal-input{
+  padding-right: 20rpx;
+  height: 100rpx;
+  overflow: hidden;
+}
+.modal-container{
+position: absolute;
+width: 100%;
+height: 500rpx;
+}
+.modal-c{
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}

@@ -2,6 +2,7 @@
 @import "../../template/question_detail.wxss";
 @import "../../template/question_detail_Introduction.wxss";
 @import "../../template/page_bottom_next.wxss";
+@import "../../template/modal_input.wxss";
 .question-detail-container{
   background: gray
 }

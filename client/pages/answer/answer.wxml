@@ -1,0 +1,18 @@
+<!--答题页面的ui-->
+<view class='answer-container'>
+  <view class='answer-header'>
+  <view class='answer-title' >
+  {{title}}
+  </view>
+  <view class='next-answer' bindtap='nextAnswer'>
+  下一题
+  </view>
+  </view>
+  <view class='answer-question'>
+<radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio" wx:for="{{items}}" wx:key="{{items.name}}">
+    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+  </label>
+</radio-group>
+  </view>
+</view>

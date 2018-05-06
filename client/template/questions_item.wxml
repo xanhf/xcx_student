@@ -6,7 +6,7 @@
                     <view class="question-info">
                         <view class="question-txt question-title">{{title}}</view>
                         <view class="question-txt question-des">{{des}}</view>
-                        <view class="question-txt">{{autho}}</view>
+                        <view class="question-txt">{{author}}</view>
                 </view>
       </view>
       </navigator>

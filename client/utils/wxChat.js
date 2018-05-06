@@ -55,15 +55,14 @@ static requset(obj={}){
  * url
  * data 以对象的格式传入
  */
-static getRequest(url, data ={}) {
-  var getRequest = Wechat.httpsPromisify(wx.request)
+static getRequest(url, data ={},uheader = {}) {
+  var getRequest = Wechat.httpsPromisify(wx.request);
+  uheader["Content-Type"] =  'application/json';
   return getRequest({
     url: url,
     method: 'GET',
     data: data,
-    header: {
-      'Content-Type': 'application/json'
-    }
+    header: uheader
   })
 }
 
@@ -72,15 +71,14 @@ static getRequest(url, data ={}) {
  * url 
  * data 以对象的格式传入
  */
-static postRequest(url, data) {
+  static postRequest(url, data, uheader = {}) {
   var postRequest = Wechat.httpsPromisify(wx.request)
+  uheader["Content-Type"] = 'application/json';
   return postRequest({
     url: url,
     method: 'POST',
     data: data,
-    header: {
-      "content-type": "application/x-www-form-urlencoded"
-    },
+    header: uheader
   })
 }
 static showLoading(text="加载中..."){
@@ -97,6 +95,27 @@ static showLoading(text="加载中..."){
 
   static stopRfresh(){
     wx.stopPullDownRefresh();
+  }
+
+  /**
+   * 设置缓存
+   */
+  static setStorage(){
+
+  }
+
+  /**
+ * 设置缓存 getStorage
+ */
+  static setStorage(key,value) {
+    return new Promise((resolve, reject) => wx.setStorage({ key: key, data: value, success: resolve, fail: reject }));
+  }
+
+  /**
+   * 获取缓存数据
+   */
+  static getStorage(key){
+    return new Promise((resolve, reject) => wx.getStorage({ key: key ,success: resolve, fail: reject }));
   }
 };
 

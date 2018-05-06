@@ -1,0 +1,40 @@
+<!--pages/answerResult/answerResult.wxml "id": "5",
+			"avg": 154.2,
+			"pnum": 5,
+			"highest": 331,
+			"lowest": 20,
+			"index": 5,
+			"score": 20-->
+<view class='answerResult-container'>
+  <view class='answer-head'>
+    <view class='answer-result-title'>
+      {{data.pnum}}个人答题
+    </view>
+      <view class='rank'>
+      排名{{data.index}}
+    </view>
+    <view class='answer-result-avg'>
+      平均分{{data.avg}}
+    </view>
+    <view class='answer-result-higst'>
+      最高分{{data.highest}}
+    </view>
+    <view class='answer-result-lowst'>
+      最低分{{data.lowest}}
+    </view>
+    <view class='score'>
+      得分{{data.score}}
+    </view>
+  </view>
+  <view>
+  答题详情
+  </view>
+  <block wx:for="{{feedback}}" wx:key="{{item.position}}">
+      <view class='{{item.choose==item.correct?"nomal":"red"}}'>
+      第{{item.position}}题
+      </view>
+  </block>
+ <view bindtap='answerRank'>
+ 查看排行榜
+ </view>
+</view>

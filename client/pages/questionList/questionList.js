@@ -1,65 +1,37 @@
 // pages/questionList/questionList.js 展示问题列表的页面
+var pullToRefresh = require('../../utils/pullToRefresh.js')
+var {config} = require('../../config.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    qList: [
-      {
-        images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-        title: "张三家的傻孩子",
-        des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
-        autho: "站衫",
-        id: "wwwww"
-      }, {
-        images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-        title: "张三家的傻孩子",
-        des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
-        autho: "站衫",
-        id: "wwwww"
-      }, {
-        images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-        title: "张三家的傻孩子",
-        des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
-        autho: "站衫",
-        id: "wwwww"
-      }, {
-        images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-        title: "张三家的傻孩子",
-        des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
-        autho: "站衫",
-        id: "wwwww"
-      }, {
-        images: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-        title: "张三家的傻孩子",
-        des: "锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制锄禾日当午，汗滴禾下土,是遏制",
-        autho: "站衫",
-        id: "wwwww"
-      }
-    ]
-  
+    dataList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options.id);
+    pullToRefresh.regist(this, config.service.qList, {
+      classId: options.id
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    pullToRefresh.pullRefresh();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
@@ -80,14 +52,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    pullToRefresh.pullRefresh();
   },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * 页面上拉触底事件的处理函数 loadMore
    */
   onReachBottom: function () {
-  
+    pullToRefresh.loadMore();
   },
 
   /**

@@ -1,29 +1,19 @@
 // pages/questionReview/questionReview.js
+var serviceApi = require('../../utils/serviceAPI.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    qItemList:[
-      "张三为何杀了里斯",
-      "王五说什么都是错的",
-      "章三又是一个不好的人",
-      "战死的发烧发的哈双方嗲声",
-      "战死的发烧发的哈双方嗲声",
-      "战死的发烧发的哈双方嗲声",
-      "战死的发烧发的哈双方嗲声",
-      "战死的发烧发的哈双方嗲声",
-      "战死的发烧发的哈双方嗲声",
-      "战死的发烧发的哈双方嗲声"
-    ]
+    qItemList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.qReview(options.id);
   },
 
   /**
@@ -60,18 +50,28 @@ Page({
   onPullDownRefresh: function () {
   
   },
-
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
   
   },
-
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
   
+  },
+
+  /**
+   * 预览的接口
+   */
+  qReview:function(id){
+    serviceApi.qReview(id).then(res => {
+      this.data.qItemList = res.data;
+      this.setData({
+        qItemList: this.data.qItemList
+      });
+    });
   }
 })

@@ -1,0 +1,26 @@
+/* pages/answer/answer.wxss */
+.answer-container{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 5rpx;
+}
+.answer-header{
+   border-bottom: 1px solid rgba(0, 0, 0, .1); 
+   display: flex;
+   height: 90rpx;
+   justify-content: space-between;
+   align-items: center
+}
+.radio-group{
+  padding-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rpx;
+}
+.radio{
+  min-height: 80rpx;
+   border-bottom: 1px solid rgba(0, 0, 0, .1); 
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}

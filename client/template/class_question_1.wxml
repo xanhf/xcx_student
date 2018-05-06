@@ -4,7 +4,7 @@
             <view class='calss-item-name'>
              <view>{{item.calssName}} </view>
              <block wx:if="{{item.isMore}}">
-                <navigator class='more'  url="../questionList/questionList?id={{qclass.id}}">
+                <navigator class='more'  url="../questionList/questionList?id={{item.classId}}">
                  <view >
                 查看更多
                 </view>

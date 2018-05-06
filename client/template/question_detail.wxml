@@ -8,19 +8,19 @@
   {{title}}
   </view>
     <view class='question-detail-text'> 
-  {{autho}}
+  {{author}}
   </view>
     <view class='question-detail-text'> 
-  {{pnum}}人参与答题
+  {{pnum?pnum:200}}人参与答题
   </view>
     <view class='question-detail-text'> 
-  题目所需时间{{qtime}}分钟
+   满分 {{full_marks}}
   </view>
   <view class='question-detail-text'> 
-  有{{qnum}}道题
+  有{{qNum}}道题
   </view>
    <view class='question-detail-text'> 
-  平均分：{{qaverage}}分
+  平均分：{{avg?avg:60}}分
   </view>
   </view>
 </view>

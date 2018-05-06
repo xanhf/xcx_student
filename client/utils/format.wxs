@@ -1,0 +1,13 @@
+// 页面相关的数据格式话
+
+var formatUserInfo = function (userInfo) {
+  console.log(userInfo + "userInfo");
+  if (typeof (userInfo) == 'string'){
+    return JSON.parse(userInfo);
+  }else{
+    return userInfo;
+  }
+}
+module.exports = {
+  formatUserInfo: formatUserInfo
+};

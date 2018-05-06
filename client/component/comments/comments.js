@@ -1,143 +1,52 @@
 // component/comments/comments.js 评论的组件
+var pullToRefresh = require('../../utils/pullToRefresh.js')
+var { config } = require('../../config.js')
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-  
-    clist: {
-      type: Array,
-      value: [
-        { uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name:"张三",
-          address:"上海",
-          time:"1234565",
-          container:"张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        }, {
-          uimage: "http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg",
-          name: "张三",
-          address: "上海",
-          time: "1234565",
-          container: "张山湿地哦合法司法妨害风化搜ID哈搜ID风好舒服哈哈是否 i 的挥洒碰到佛；iasdhpfhasdvsd地舒服哈哈说"
-        },
-      ],
-    }
-
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    /**
+     * 设置参数
+     */
+    setId:function(id){
+      pullToRefresh.regist(this, config.service.qCommentList, {
+        qId: id
+      });
+    },
+    /**
+     * 刷新的方法
+     */
+    pullRefresh:function(){
+      pullToRefresh.pullRefresh();
+    },
+    /**
+     * 加载更多的方法 addNewComment
+     */
+    loadMore:function(){
+      pullToRefresh.loadMore();
+    },
+    /**
+     * 添加新的评论的方法
+     */
+    addNewComment:function(commentText){
+      pullToRefresh.addNewData({
+        commentDes: commentText,
+        openId: getApp().globalData.openId,
+        user_info: getApp().globalData.userInfo
+      });
+    }
   }
 })

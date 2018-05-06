@@ -2,7 +2,7 @@
 <view class='question-review-list'>
   <block wx:for="{{qItemList}}" wx:key="{{item}}">
     <view class='question-review-item'>
-    {{index+1}}.  {{item}}
+    {{index+1}}.  {{item.title}}
     </view>
   </block>
 </view>

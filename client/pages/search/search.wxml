@@ -1,12 +1,15 @@
 <!--pages/search/search.wxml-->
 <view class='container'>
-<component-tab tabList="{{tabList}}" ></component-tab>
-<view class='tab-content'>
+<component-tab tabList="{{tabList}}" bindtabChange="tabChange" ></component-tab>
+<view class='tab-content' hidden='{{select==1}}'>
  <import src="../../template/class_question_1.wxml"/>
   <import src="../../template/class_question_0.wxml"/>
   <import src="../../template/class_question_2.wxml"/>
  <block wx:for="{{dataList}}" wx:key="{{item.id}}">
   <template is="class_questions_{{item.layType}}" data="{{item}}"/>
  </block>
+</view>
+<view class='tab-content' hidden='{{select==0}}'>
+ 视频
 </view>
 </view>

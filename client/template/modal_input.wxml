@@ -1,0 +1,6 @@
+<!--弹出输入框 modal_input-->
+<template name="modal_input">
+ <modal  hidden="{{hiddenmodalput}}" title="{{title}}" confirm-text="{{confirm}}" cancel-text="{{cancel}}" bindcancel="cancel" bindconfirm="confirm">  
+    <textarea class='modal-input' type='text' placeholder="{{placeholder}}" cursor-spacing='200' bindinput = "inputListener"/>  
+</modal>  
+</template>

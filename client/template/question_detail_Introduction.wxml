@@ -8,13 +8,13 @@
       {{des}}
       </view>
 </view>
-<navigator url='../questionReview/questionReview'>
+<navigator url='../questionReview/questionReview?id={{id}}'>
 <view class='question-detail-review'>
 <view class='introduction-title qview'>
 题目预览
 </view>
 <view class='question-review-text'>
-共{{qnum}}个题目
+共{{qNum}}个题目
 </view>
 </view>
 </navigator>

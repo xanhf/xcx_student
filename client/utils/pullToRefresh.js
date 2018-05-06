@@ -52,8 +52,9 @@ fail = function (res, isfresh){
     if(this.pullData.isLoading){//正在加载
       return;
     }
+    getApp().globalData.wxAPI.showLoading();
     this.pullData.isLoading=true;
-    this.pullConfig.data.page =0;
+    this.pageSetting.page =0;
     this.requestApi();
   }
 
@@ -67,13 +68,15 @@ fail = function (res, isfresh){
     }
     api.then(res => {//成功之后设置数据
       console.log(res);
-      dataRefresh(res.data);
+      this.dataRefresh(res.data);
       this.success(res,this.pageSetting.page==0);
     }, err => {//错误
+      getApp().globalData.wxAPI.hideLoading();
       this.pullData.isLoading = false;
       console.log("pullToRefresh-->"+e);
       this.fail(e, this.pageSetting.page == 0);
     }).catch(e => {//异常
+      getApp().globalData.wxAPI.hideLoading();
       this.pullData.isLoading = false;
       console.log("pullToRefresh-->"+e);
       this.fail(e, this.pageSetting.page == 0);
@@ -84,6 +87,7 @@ fail = function (res, isfresh){
    * 根据dataList判断是否有更多和是否显示空页面
    */
   dataRefresh(dataList){
+    getApp().globalData.wxAPI.hideLoading();
     this.pullData.isLoading = false;
     if (dataList.length==0){
       if (this.pageSetting.page==0){//说明第一页没数据了显示空页面
@@ -98,17 +102,18 @@ fail = function (res, isfresh){
       })
       return;
     }
+    if (this.pageSetting.page == 0) {//直接赋值
+      this.ctx.data.dataList = dataList;
+      getApp().globalData.wxAPI.stopRfresh();
+    } else {//添加
+      this.ctx.data.dataList = this.ctx.data.dataList.concat(dataList);
+    }
     //有数据判断是否有更多
     if (dataList.length >= this.pageSetting.pageSize){
-      this.pageSetting.page += 1;
+        this.pageSetting.page += 1;
         this.pullData.isMore =true;//还有更多
     }else{
       this.pullData.isMore = false;//没有更多了
-    }
-    if (this.pageSetting.page==0){//直接赋值
-      this.ctx.data.dataList = dataList;
-    }else{//添加
-      this.ctx.data.dataList = this.ctx.data.dataList.concat(dataList);
     }
     //刷新UI
     this.ctx.setData({
@@ -124,8 +129,21 @@ fail = function (res, isfresh){
     if (this.pullData.isLoading||!this.pullData.isMore){//正在加载或者没有更多则直接返回
       return;
     }
+    getApp().globalData.wxAPI.showLoading();
     this.pullData.isLoading = true;
     this.requestApi();
+  }
+  /**
+   * 向集合中添加一个新的数据到最前面
+   */
+  addNewData(data ={}){
+    if (this.ctx.data.dataList){
+      this.ctx.data.dataList.unshift(data);
+      let dataList = this.ctx.data.dataList;
+      this.ctx.setData({
+        dataList: dataList
+      })
+    }
   }
 }
 module.exports = new pullToRefresh(); 

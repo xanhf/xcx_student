@@ -1,0 +1,7 @@
+/* pages/answerResult/answerResult.wxss */
+.red{
+  color: red;
+}
+.nomal{
+ color: green
+}

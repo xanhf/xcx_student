@@ -4,7 +4,9 @@
     评论
     </view>
     <import src="../../template/comment_item.wxml"/>
-    <block wx:for="{{clist}}" wx:key="{{item.uimage}}">
+    <block wx:for="{{dataList}}" wx:key="{{item.id}}">
    <template is="comment_item" data="{{...item}}"/>
     </block>
+    <import src="../../template/refresh_bottom.wxml" />
+     <template is="refresh-bottom" data="{{...pullData}}" />
 </view>

@@ -15,8 +15,8 @@ const parise = async (ctx, next) => {
   let uOpenId = ctx.request.query["openId"];
   let qParaId = ctx.request.query["qId"];
   try {
-    let data = await mysql("qParise").where({ 'openId': uOpenId, "qId": qParaId});
-    if (data&&data.openId){
+    let data = await mysql("qParise").where({ 'openId': uOpenId, "qId": qParaId }).limit(1);
+    if (data.length>0){
       data =   await mysql("qParise").where({ 'openId': uOpenId, "qId": qParaId }).update('isParise', parise);
     }else{
       data =  await mysql("qParise").insert({ openId: uOpenId, isParise: parise, qId: qParaId });
@@ -36,10 +36,10 @@ const parise = async (ctx, next) => {
  */
 const judgePraise = async (ctx, next) =>{
   let uOpenId = ctx.request.query["openId"];
-  let qParaId = ctx.request.query["qId"];
+  let qParaId = ctx.request.query["id"];
   try {
-    let data = await mysql("qParise").where({ 'openId': uOpenId, "qId": qParaId});
-    handleData(ctx, data);
+    let data = await mysql("qParise").select("isParise").where({ 'openId': uOpenId, "qId": qParaId}).limit(1);
+    handleData(ctx, data[0]);
     await next()//执行下一个中间件
   } catch (e) {
     ctx.body = {
@@ -47,7 +47,7 @@ const judgePraise = async (ctx, next) =>{
       error: e && e.message ? e.message : e.toString()
     }
   }
-}
+};
 
 module.exports = {
   toParise: parise,

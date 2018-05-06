@@ -1,0 +1,11 @@
+<!--pages/answerRank/answerRank.wxml "openId": "oAtsP5bj4Mz9PMguBALMLn77DGhk",
+		"qId": 5,
+		"user_info": "{\"openId\":\"oAtsP5bj4Mz9PMguBALMLn77DGhk\",\"nickName\":\"………\",\"gender\":1,\"language\":\"zh_CN\",\"city\":\"Xi'an\",\"province\":\"Shaanxi\",\"country\":\"China\",\"avatarUrl\":\"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLjQLxp2H6hvdZcuqVnQWqAFrjavTS8WtYOYI9ZjicwiagibE1JwczRP3B52GQTOzQARIXia4kxrjNBtg/0\",\"watermark\":{\"timestamp\":1524056492,\"appid\":\"wx0897fbee6a7e480d\"}}",
+		"scoresum": 331-->
+<view class='answer-rank'>
+<block wx:for="{{dataList}}" wx:key="{{item.openId}}">
+  <view>
+  分数:{{item.scoresum}}
+  </view>
+</block>
+</view>

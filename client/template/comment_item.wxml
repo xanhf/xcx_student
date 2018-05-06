@@ -1,25 +1,26 @@
 <!--答题模块的分类模板 滑块形式-->
+<wxs src="../utils/format.wxs" module="format" />
 <template name="comment_item">
   <view class='comment-item-container'>
     <view class='comment-item-person'>
       <view class='comment-item-person-info'>
-        <image class='comment-item-person-image' src='{{uimage}}'>
+        <image class='comment-item-person-image' src='{{format.formatUserInfo(user_info).avatarUrl}}'>
         </image>
         <view class='comment-item-person-monicker'>
           <view class='comment-item-person-name'>
-            {{name}}
+            {{format.formatUserInfo(user_info).nickName}}
           </view>
           <view class='comment-item-person-address'>
-            {{address}}
+            {{format.formatUserInfo(user_info).city}}
           </view>
         </view>
       </view>
       <view class='comment-item-time'>
-        {{time}}
+        {{create_time}}
       </view>
     </view>
     <view class='comment-item-text'>
-      {{container}}
+      {{commentDes}}
     </view>
   </view>
 </template>

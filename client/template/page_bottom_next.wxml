@@ -1,12 +1,14 @@
   <template name = "page_bottom_next">
 <view class='page-bottom'>
-<view class='praise'>
+<view class='praise' bindtap='praiseClick' data-id='{{id}}' data-parise='{{isParise?isParise:0}}'>
+<image class='icon-bottom' src="{{isParise&&isParise==1?'../../images/heartClick.png':'../../images/heart.png'}}"></image>
 有用
 </view>
-<view class='comment'>
+<view class='comment' bindtap='commentClick' data-id='{{id}}'>
+<image class='icon-bottom' src='../../images/comment.png'></image>
 评论
 </view>
-<view class='start-next'>
+<view class='start-next' bindtap='startQuestion' data-id='{{id}}'>
 开始答题
 </view>
 </view>
