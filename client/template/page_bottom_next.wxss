@@ -10,7 +10,7 @@
   justify-content: space-around;
   padding-left: 20rpx;
   background: white;
-  
+
 }
 .praise{
   width: 20%;

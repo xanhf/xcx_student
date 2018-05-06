@@ -1,0 +1,20 @@
+<!--pages/videoDetail/videoDetail.wxml-->
+<view class='video-contaner'>
+<video  class="video" src='http://qiniu-xpc3.vmoviercdn.com/5aee6d1e0aaf5.mp4'  controls autoplay></video>
+</view>
+<scroll-view class='video-comment' scroll-y="true" bindscrolltolower="loadMore">
+<view >
+ <component-comments u_type="video" id="commitList" ></component-comments>
+</view>
+</scroll-view>
+<view class='video-bottom'>
+<view class='praise' bindtap='praiseClick' data-id='{{id}}' data-parise='{{isParise?isParise:0}}'>
+  <image class='video-icon-bottom' src="{{isParise&&isParise==1?'../../images/heartClick.png':'../../images/heart.png'}}"></image>
+  点赞
+</view>
+<view class='praise' bindtap='commentClick' data-id='{{id}}'>
+<image class='video-icon-bottom' src='../../images/comment.png'></image>
+评论
+</view>
+</view>
+

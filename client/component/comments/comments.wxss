@@ -1,6 +1,7 @@
 /* component/comments/comments.wxss */
 @import "../../template/comment_item";
 @import "../../template/refresh_bottom.wxss";
+@import "../../template/video_comment.wxss";
 .comments-container{
 background: white;
 margin-bottom:95rpx;

@@ -1,0 +1,3 @@
+/* pages/videoList/videoList.wxss */
+@import "../../template/video_list_item.wxss";
+@import "../../template/refresh_bottom.wxss";

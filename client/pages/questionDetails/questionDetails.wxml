@@ -6,7 +6,7 @@
  <template is="question_detail" data="{{...qDetai}}"/>
   <template is="question_detail_introduction" data="{{...qDetai}}"/>
   <import src="../../template/modal_input.wxml"/>
-  <component-comments id="commitList" ></component-comments>
+  <component-comments u_type="question" id="commitList" ></component-comments>
   <template is="page_bottom_next" data="{{...qDetai}}"/>
   <template is="modal_input" data="{{...commentModal}}"/>
 </view> 

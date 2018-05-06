@@ -1,0 +1,16 @@
+<!--视频列表查看更多-->
+<template name="video_list_item">
+  <navigator url="../videoDetail/videoDetail">
+<view class='video-item-contaner'>
+<image class='video-image' src='{{image}}'></image>
+<view class="video-list-info">
+<view class='video-info-title'>
+{{vTitle}}
+</view>
+<view class='video-info-pnum'>
+{{pnum}}人观看
+</view>
+</view>
+</view>
+</navigator>
+</template>

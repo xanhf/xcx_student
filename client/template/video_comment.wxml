@@ -1,0 +1,18 @@
+<!--视频评论的显示布局-->
+<wxs src="../utils/format.wxs" module="format" />
+<template name="video_comment_item">
+<view class='video-comment-contaner'>
+<image class='video-commnet-image' src='{{format.formatUserInfo(user_info).avatarUrl}}'></image>
+<view class='video-comment-info'>
+<view class='video-comment-username'>
+   {{format.formatUserInfo(user_info).nickName}}
+</view>
+<view class='video-comment-des'>
+{{commentDes}}
+</view>
+<view class='video-comment-time'>
+   {{create_time}}
+</view>
+</view>
+</view>
+</template>

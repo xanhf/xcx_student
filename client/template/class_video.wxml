@@ -1,0 +1,29 @@
+<!--视频模块展示的布局 videoList -->
+<template name = "class_video">
+<view class='class-video'>
+<view class='class-video-title'>
+{{item.classTitle}}
+</view>
+<view class='class-video-container'>
+  <block wx:for="{{item.videolist}}" wx:key="{{item.image}}">
+  <navigator url="../videoDetail/videoDetail">
+  <view class='class-video-item'>
+  <image class='class-video-image' src='{{item.image}}'>
+  </image>
+  <view class='class-video-item-title'>
+  {{item.vTitle}}
+  </view>
+  <view class='class-video-item-pnum'>
+  {{item.pnum}}人观看
+  </view>
+  </view>
+  </navigator>
+  </block>
+</view>
+<navigator url="../videoList/videoList">
+<view class='more-video'>
+查看全部
+</view>
+</navigator>
+</view>
+</template>
