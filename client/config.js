@@ -44,6 +44,12 @@ var config = {
         qresult: `${host}/weapp/qresult`, 
         //获取题目排行榜的接口 rankList id
         rankList: `${host}/weapp/rankList`, 
+        //获取视频的类的信息
+        videoclass: `${host}/weapp/videoclass`, 
+        //获取视频的类的更多的信息 
+        videolist: `${host}/weapp/videolist`, 
+        //点击之后增加阅读量
+        videoPnum: `${host}/weapp/videoPnum`, 
     }
 };
 

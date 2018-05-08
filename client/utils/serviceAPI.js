@@ -116,6 +116,23 @@ class serviceAPI {
       openId: getApp().globalData.openId
     });
   }
+  /**
+   * 获取视频的页面信息 
+   */
+  static videoClass(){
+    return getApp().globalData.wxAPI.getRequest(config.service.videoclass, {});
+  }
+
+  /**
+  * 获取视频的页面信息 观看视频的id
+  */
+  static videoPnum(id) {
+    return getApp().globalData.wxAPI.getRequest(config.service.videoPnum, {
+      id: id
+    });
+  }
+
+  
 }
 
 module.exports = serviceAPI; 

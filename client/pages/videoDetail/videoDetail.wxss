@@ -1,4 +1,5 @@
 /* pages/videoDetail/videoDetail.wxss */
+@import "../../template/video_detail_info.wxss";
 page {
   overflow-y: none;
   height: 100%;

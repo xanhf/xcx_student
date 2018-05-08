@@ -5,7 +5,7 @@
 <image class='video-image' src='{{image}}'></image>
 <view class="video-list-info">
 <view class='video-info-title'>
-{{vTitle}}
+{{title}}
 </view>
 <view class='video-info-pnum'>
 {{pnum}}人观看

@@ -1,0 +1,38 @@
+.video-detail-info{
+  padding-bottom: 20rpx;
+  background: white;
+  padding-top: 20rpx;
+  position: relative;
+  /* border-bottom: 1px solid #e1e1e1; */
+}
+.video-info-title{
+ font-size:30rpx;
+color:black;
+font-weight:bold;
+padding:10rpx;
+
+}
+.video-info-des{
+font-size:20rpx;
+color:gray;
+padding:10rpx;
+}
+.video-info-pnum{
+position:absolute;
+right:20px;
+top:12px;
+font-size:20rpx;
+color:black;
+}
+.video-info-teacher{
+position:absolute;
+right:20px;
+bottom:12px;
+font-size:27rpx;
+color:black;
+padding-left:10rpx;
+padding-right:10rpx;
+padding-bottom:5rpx;
+padding-top:5rpx;
+background:gray;
+}

@@ -1,11 +1,11 @@
-<!--pages/videoDetail/videoDetail.wxml-->
+<!--pages/videoDetail/videoDetail.wxml autoplay video_detail_info -->
 <view class='video-contaner'>
-<video  class="video" src='http://qiniu-xpc3.vmoviercdn.com/5aee6d1e0aaf5.mp4'  controls autoplay></video>
+<video  class="video" src='http://qiniu-xpc3.vmoviercdn.com/5aee6d1e0aaf5.mp4'  controls ></video>
 </view>
 <scroll-view class='video-comment' scroll-y="true" bindscrolltolower="loadMore">
-<view >
+  <import src="../../template/video_detail_info.wxml"/>
+ <template is="video_detail_info" data="{{...info}}"/>
  <component-comments u_type="video" id="commitList" ></component-comments>
-</view>
 </scroll-view>
 <view class='video-bottom'>
 <view class='praise' bindtap='praiseClick' data-id='{{id}}' data-parise='{{isParise?isParise:0}}'>

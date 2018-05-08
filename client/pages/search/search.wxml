@@ -11,7 +11,7 @@
 </view>
 <view class='tab-content' hidden='{{select==0}}'>
 <import src="../../template/class_video.wxml"/>
-<block wx:for="{{videoclass}}" wx:key="{{item.classTitle}}">
+<block wx:for="{{videoclass}}" wx:key="{{item.calssName}}">
   <template is="class_video" data="{{item}}"/>
    </block>
 </view>

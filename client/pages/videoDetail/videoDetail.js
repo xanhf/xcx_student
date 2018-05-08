@@ -1,18 +1,21 @@
 // 点击查看视频的页面
+var serviceApi = require('../../utils/serviceAPI.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    info:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let item = options.item;
+    this.data.info = item;
+    this.videoPnum(item.id);
   },
 
   /**
@@ -22,6 +25,9 @@ Page({
     this.commitList = this.selectComponent("#commitList");
     this.commitList.setId(5);
     this.commitList.pullRefresh();
+    this.setData({
+      info: this.data.info
+    });
   },
 
   /**
@@ -79,5 +85,15 @@ Page({
  */
   commentClick:function(event){
 
+  },
+  /**
+   * 更新当前视频的阅读量
+   */
+  videoPnum:function(id){
+    serviceApi.videoPnum(id).then(res => {
+      console.log(res);
+    }).catch(e => {
+      console.log(e);
+    })
   }
 })

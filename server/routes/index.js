@@ -13,7 +13,27 @@ const { getqComment, insertComment } = require('../sqlmiddle/qcomment.js');
 const { toParise, getjudgePraise } = require('../sqlmiddle/qpraise.js');
 const { getFirstTopic, getTopicById, getTopicNameByQid } = require('../sqlmiddle/topic.js');
 const { insertqfeedbackData, checkavgbyqid, feedbackResult, rankList, checkUser } = require('../sqlmiddle/qfeedback.js');
-// 从 sdk 中取出中间件
+
+/**
+ * 视频相关
+ */
+const { getVideoclassdata,
+  getVListById,
+  pnum } = require('../sqlmiddle/videoclass.js');
+const { getVideoByVid } = require('../sqlmiddle/video.js');
+const { getTeacherById } = require('../sqlmiddle/teacher.js');
+const { insertvfeedbackData,
+  feedbackVList,//获取反馈列表（待定）
+  checkUserLastPostion } = require('../sqlmiddle/vfeedback.js');
+const { focusT,
+  judgeTFoucs } = require('../sqlmiddle/teacherfoucs.js');
+const { focusV,
+  judgeFoucs } = require('../sqlmiddle/videofoucs.js');
+
+const { getVCommentListById,
+  insertVCommentData } = require('../sqlmiddle/vcomment.js');
+
+// 从 sdk 中取出中间件 
 // 这里展示如何使用 Koa 中间件完成登录态的颁发与验证
 const { auth: { authorizationMiddleware, validationMiddleware } } = require('../qcloud')
 
@@ -40,6 +60,9 @@ router.get('/message', controllers.message.get)
 router.post('/message', controllers.message.post)
 //首页的推荐接口
 router.get('/home', getData,controllers.home)
+/**
+ * 答题相关
+ */
 //获取题的分类的接口
 router.get('/questionclass', getClassQestion, controllers.question);
 //根据题的分类获取列表的接口
@@ -64,5 +87,27 @@ router.get('/qfeedback', insertqfeedbackData, controllers.qfeedback);
 router.get('/qresult', checkavgbyqid, qavg, feedbackResult, qresultm,controllers.qresult);
 //获取排行榜的接口
 router.get('/rankList', rankList, controllers.qfeedback);
+
+/**
+* 视频相关
+*/
+//获取视频类的列表
+router.get('/videoclass', getVideoclassdata, controllers.videoclass);
+//根据视频的分类获取列表的接口
+router.get('/videolist', getVListById, controllers.videoclass);
+//更新观看人数
+router.get('/videoPnum', pnum, controllers.videoclass);
+//获取视频详情的接口
+router.get('/videoDetail', judgeTFoucs, getTeacherById, checkUserLastPostion, judgeFoucs, getVideoByVid, controllers.video);
+//点击关注或者取消关注老师
+router.get('/focusT', focusT, controllers.teacherfoucs);
+//点击关注或者取消关注视频
+router.get('/focusV', focusV, controllers.videofoucs);
+//视频评论
+router.get('/vcomment', insertVCommentData, controllers.vcomment);
+//获取评论的集合的接口
+router.get('/vcommentlist', getVCommentListById, controllers.vcomment);
+//视频进度反馈
+router.get('/vfeedback', insertvfeedbackData, controllers.vfeedback);
 
 module.exports = router

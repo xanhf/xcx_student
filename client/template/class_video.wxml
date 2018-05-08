@@ -1,17 +1,19 @@
-<!--视频模块展示的布局 videoList -->
+<!--视频模块展示的布局 videoList   title:"张三有话说",
+      des:"有20个视频大约需要100分钟",
+      pnum:101 -->
 <template name = "class_video">
 <view class='class-video'>
 <view class='class-video-title'>
-{{item.classTitle}}
+{{item.calssName}}
 </view>
 <view class='class-video-container'>
-  <block wx:for="{{item.videolist}}" wx:key="{{item.image}}">
-  <navigator url="../videoDetail/videoDetail">
+  <block wx:for="{{item.vList}}" wx:key="{{item.image}}">
+  <navigator url="../videoDetail/videoDetail?item={{item}}">
   <view class='class-video-item'>
   <image class='class-video-image' src='{{item.image}}'>
   </image>
   <view class='class-video-item-title'>
-  {{item.vTitle}}
+  {{item.title}}
   </view>
   <view class='class-video-item-pnum'>
   {{item.pnum}}人观看
@@ -20,8 +22,8 @@
   </navigator>
   </block>
 </view>
-<navigator url="../videoList/videoList">
-<view class='more-video'>
+<navigator url="../videoList/videoList?id={{item.classId}}">
+<view class='more-video' hidden='{{!isMore}}'>
 查看全部
 </view>
 </navigator>

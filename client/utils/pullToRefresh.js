@@ -115,6 +115,7 @@ fail = function (res, isfresh){
     }else{
       this.pullData.isMore = false;//没有更多了
     }
+    this.ctx.data.pullData = this.pullData;
     //刷新UI
     this.ctx.setData({
       dataList: this.ctx.data.dataList,
