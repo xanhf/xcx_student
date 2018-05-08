@@ -1,6 +1,7 @@
 <!--视频模块展示的布局 videoList   title:"张三有话说",
       des:"有20个视频大约需要100分钟",
       pnum:101 -->
+      <wxs src="../utils/format.wxs" module="format" />
 <template name = "class_video">
 <view class='class-video'>
 <view class='class-video-title'>
@@ -8,7 +9,7 @@
 </view>
 <view class='class-video-container'>
   <block wx:for="{{item.vList}}" wx:key="{{item.image}}">
-  <navigator url="../videoDetail/videoDetail?item={{item}}">
+  <navigator url="../videoDetail/videoDetail?item={{format.objectToJson(item)}}">
   <view class='class-video-item'>
   <image class='class-video-image' src='{{item.image}}'>
   </image>
@@ -23,7 +24,7 @@
   </block>
 </view>
 <navigator url="../videoList/videoList?id={{item.classId}}">
-<view class='more-video' hidden='{{!isMore}}'>
+<view class='more-video' hidden='{{isMore}}'>
 查看全部
 </view>
 </navigator>

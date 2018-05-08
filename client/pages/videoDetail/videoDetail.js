@@ -13,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let item = options.item;
+    let item = JSON.parse(options.item);
     this.data.info = item;
     this.videoPnum(item.id);
   },

@@ -8,6 +8,11 @@ var formatUserInfo = function (userInfo) {
     return userInfo;
   }
 }
+
+var objectToJson = function (o) {
+  return JSON.stringify(o);
+}
 module.exports = {
-  formatUserInfo: formatUserInfo
+  formatUserInfo: formatUserInfo,
+  objectToJson: objectToJson
 };

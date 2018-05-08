@@ -1,14 +1,15 @@
 <!--视频列表查看更多-->
+     <wxs src="../utils/format.wxs" module="format" />
 <template name="video_list_item">
-  <navigator url="../videoDetail/videoDetail">
+  <navigator url="../videoDetail/videoDetail?item={{format.objectToJson(item)}}">
 <view class='video-item-contaner'>
-<image class='video-image' src='{{image}}'></image>
+<image class='video-image' src='{{item.image}}'></image>
 <view class="video-list-info">
 <view class='video-info-title'>
-{{title}}
+{{item.title}}
 </view>
 <view class='video-info-pnum'>
-{{pnum}}人观看
+{{item.pnum}}人观看
 </view>
 </view>
 </view>
