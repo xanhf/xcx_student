@@ -1,0 +1,7 @@
+@import "./video_selection.wxss";
+.video-select-scrool-x{
+  width: 100%;
+  white-space: nowrap;
+  height:300rpx;
+
+}

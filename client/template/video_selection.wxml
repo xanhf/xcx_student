@@ -1,0 +1,6 @@
+<!--视频合集的分集布局-->
+<template name="video_selection">
+<view class='video-selection-container {{select==position?"check":""}}'>
+{{position}}.{{title}}
+</view>
+</template>

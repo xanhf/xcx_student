@@ -1,0 +1,8 @@
+<template name="video_select_scrool_x">
+<scroll-view class='video-select-scrool-x' scroll-x>
+  <import src="./video_selection.wxml" />
+  <block wx:for="{{titleList}}" wx:key="{{item.title}}">
+    <template is="video_selection" data="{{...item,position,select}}" />
+  </block>
+</scroll-view>
+</template>

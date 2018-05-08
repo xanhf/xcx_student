@@ -1,0 +1,14 @@
+.video-selection-container{
+  border-color:gray; 
+  border-radius: 20rpx;
+    display: inline-flex;
+  margin-right: 20rpx;
+  width: 29%;
+  position:flex;
+  flex-wrap: wrap;
+        word-wrap: break-word;
+word-break: normal; 
+}
+.check{
+  border-color: gold;
+}
