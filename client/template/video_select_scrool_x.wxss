@@ -1,7 +1,8 @@
 @import "./video_selection.wxss";
 .video-select-scrool-x{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
   width: 100%;
   white-space: nowrap;
-  height:300rpx;
-
+  position: relative;
 }
