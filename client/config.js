@@ -50,6 +50,18 @@ var config = {
         videolist: `${host}/weapp/videolist`, 
         //点击之后增加阅读量
         videoPnum: `${host}/weapp/videoPnum`, 
+        //获取视频详情 
+        videoDetail: `${host}/weapp/videoDetail`,
+        //关注视频的接口
+        focusV: `${host}/weapp/focusV`,
+        //关注老师的接口 
+        focusT: `${host}/weapp/focusT`,
+        //视频评论
+        vcomment: `${host}/weapp/vcomment`,
+        //获取视频评论列表的接口
+        vcommentlist: `${host}/weapp/vcommentlist`,
+        //观看进度反馈的接口 
+        vfeedback: `${host}/weapp/vfeedback`,
     }
 };
 

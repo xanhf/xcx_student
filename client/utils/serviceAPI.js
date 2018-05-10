@@ -132,7 +132,57 @@ class serviceAPI {
     });
   }
 
-  
+  /**
+   * 获取视频详情的接口
+   */
+  static videoDetail(id,tId) {
+    return getApp().globalData.wxAPI.getRequest(config.service.videoDetail, {
+      id: id,
+      openId: getApp().globalData.openId,
+      tId:tId
+    });
+  }
+  /**
+   * 关注老师的接口 
+  */
+  static focusT(focus, tId) {
+    return getApp().globalData.wxAPI.getRequest(config.service.focusT, {
+      focus: focus,
+      openId: getApp().globalData.openId,
+      tId: tId
+    });
+  }
+  /**
+   * 关注视频的接口
+   */
+  static focusV(focus, vId) {
+    return getApp().globalData.wxAPI.getRequest(config.service.focusV, {
+      focus: focus,
+      openId: getApp().globalData.openId,
+      vId: vId
+    });
+  }
+  /**
+   * 评论视频的接口
+   */
+  static vcomment(comment, vId) {
+    return getApp().globalData.wxAPI.getRequest(config.service.vcomment, {
+      comment: comment,
+      openId: getApp().globalData.openId,
+      vId: vId
+    });
+  }
+  /**
+   * 观看进度反馈的接口
+   */
+  static vfeedback(vCId, vId, progress) {
+    return getApp().globalData.wxAPI.getRequest(config.service.vfeedback, {
+      openId: getApp().globalData.openId,
+      vId: vId,
+      vCId: vCId,
+      progress: progress
+    });
+  }
 }
 
 module.exports = serviceAPI; 

@@ -8,20 +8,10 @@ Page({
   data: {
     info:{},
     title:{
-      titleList: [
-        { title: "z哈谁哈斯破发撒地方把草莓，穿", position: 1, videoUrl:"http://qiniu-xpc3.vmoviercdn.com/5aee6d1e0aaf5.mp4"},
-        { title: "z哈谁哈斯破发撒地方把草莓，穿", position: 2, videoUrl: "http://qiniu-xpc3.vmoviercdn.com/5aee6d1e0aaf5.mp4"},
-        { title: "z哈谁哈斯破发撒地方把草莓，穿", position: 3, videoUrl: "http://qiniu-xpc3.vmoviercdn.com/5aee6d1e0aaf5.mp4"},
-        { title: "z哈谁哈斯破发撒地方把草莓，穿", position: 4, videoUrl: "http://qiniu-video5.vmoviercdn.com/5aed424a36f24.mp4"},
-        { title: "z哈谁哈斯破发撒地方把草莓，穿", position: 5, videoUrl: "http://qiniu-video5.vmoviercdn.com/5aed424a36f24.mp4"},
-        { title: "z哈谁哈斯破发撒地方把草莓，穿", position: 6, videoUrl: "http://qiniu-video5.vmoviercdn.com/5aed424a36f24.mp4"},
-        { title: "z哈谁哈斯破发撒地方把草莓，穿", position: 7, videoUrl: "http://qiniu-video5.vmoviercdn.com/5aed424a36f24.mp4"},
-        { title: "z哈谁哈斯破发撒地方把草莓，穿", position: 8, videoUrl: "http://qiniu-xpc3.vmoviercdn.com/5aee6d1e0aaf5.mp4"}
-      ],
+      videoList: [],
       select: 1
     },
-
-   
+    exdata:{} 
   },
 
   /**
@@ -31,6 +21,7 @@ Page({
     let item = JSON.parse(options.item);
     this.data.info = item;
     this.videoPnum(item.id);
+    this.videoDetial(item.id,item.tId);
   },
 
   /**
@@ -39,11 +30,9 @@ Page({
   onReady: function () {
     this.videoContext = wx.createVideoContext('video')
     this.commitList = this.selectComponent("#commitList");
-    this.commitList.setId(5);
-    this.commitList.pullRefresh();
+
     this.setData({
       info: this.data.info,
-      videoUrl: this.data.title.titleList[0].videoUrl
     });
   },
 
@@ -92,17 +81,46 @@ Page({
   
   },
   /**
+   * 关注老师
+   */
+  foucsT:function(event){
+    if (event.currentTarget.dataset.parise == 0) {
+      event.currentTarget.dataset.parise = 1;
+    } else {
+      event.currentTarget.dataset.parise = 0;
+    }
+    serviceApi.focusT(event.currentTarget.dataset.parise, this.data.title.videoList[0].vId).then(res => {
+      //关注老师
+      this.data.exdata.foucs = event.currentTarget.dataset.parise;
+      this.setData({
+        exdata: this.data.exdata
+      });
+    });
+  },
+  /**
    * 点赞
    */
   praiseClick:function(event){
-
+    if (event.currentTarget.dataset.parise == 0) {
+      event.currentTarget.dataset.parise = 1;
+    } else {
+      event.currentTarget.dataset.parise = 0;
+    }
+    serviceApi.focusV(event.currentTarget.dataset.parise, this.data.title.videoList[0].vId).then(res => {
+    //点赞
+      this.data.exdata.focus = event.currentTarget.dataset.parise;
+      this.setData({
+        exdata: this.data.exdata
+      });
+    });
   },
   clickvideo:function(event){
     this.videoContext.pause();
     this.data.title.select = event.currentTarget.dataset.position;
+    this.refreshComment(this.data.title.videoList[this.data.title.select - 1].id);
     this.setData({
       title: this.data.title,
-      videoUrl: this.data.title.titleList[this.data.title.select-1].videoUrl
+      videoUrl: this.data.title.videoList[this.data.title.select - 1].url
     });
   },
 /**
@@ -120,5 +138,28 @@ Page({
     }).catch(e => {
       console.log(e);
     })
+  },
+  /**
+   * 获取视频的详情
+   */
+  videoDetial:function(id,tId){
+    serviceApi.videoDetail(id, tId).then(res => {
+      this.data.title.videoList = res.data.videoList;
+      this.data.exdata = res.data.exdata;
+      this.setData({
+        exdata: this.data.exdata,
+        title: this.data.title,
+        videoUrl: this.data.title.videoList[0].url
+      });
+    }).catch(e => {
+      console.log(e);
+    })
+  },
+  /**
+   * 刷新评论列表
+   */
+  refreshComment:function(id){
+    this.commitList.setId(id);
+    this.commitList.pullRefresh();
   }
 })

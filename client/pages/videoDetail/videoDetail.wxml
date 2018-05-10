@@ -10,13 +10,17 @@
  <component-comments u_type="video" id="commitList" ></component-comments>
 </scroll-view>
 <view class='video-bottom'>
-<view class='praise' bindtap='praiseClick' data-id='{{id}}' data-parise='{{isParise?isParise:0}}'>
-  <image class='video-icon-bottom' src="{{isParise&&isParise==1?'../../images/heartClick.png':'../../images/heart.png'}}"></image>
+<view class='praise' bindtap='praiseClick' data-parise='{{exdata.focus?exdata.focus:0}}'>
+  <image class='video-icon-bottom' src="{{exdata.focus&&exdata.focus==1?'../../images/heartClick.png':'../../images/heart.png'}}"></image>
   点赞
 </view>
 <view class='praise' bindtap='commentClick' data-id='{{id}}'>
 <image class='video-icon-bottom' src='../../images/comment.png'></image>
 评论
 </view>
+
+ <import src="../../template/modal_teacher_foucs.wxml"/>
+ <template is="modal_teacher_foucs"/>
+
 </view>
 

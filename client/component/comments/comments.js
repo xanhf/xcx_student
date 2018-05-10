@@ -26,9 +26,15 @@ Component({
      * 设置参数
      */
     setId:function(id){
-      pullToRefresh.regist(this, config.service.qCommentList, {
-        qId: id
-      });
+      if (this.properties.u_type =="question"){
+        pullToRefresh.regist(this, config.service.qCommentList, {
+          qId: id
+        });
+      }else{
+        pullToRefresh.regist(this, config.service.vcommentlist, {
+          vId: id
+        });
+      }
     },
     /**
      * 刷新的方法

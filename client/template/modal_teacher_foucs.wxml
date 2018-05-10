@@ -1,0 +1,17 @@
+<!--弹出老师的信息设置关注 modal_teacher_foucs -->
+<template name="modal_teacher_foucs">
+  <view class='teacher-container' hidden='{{isShowTeacher}}'>
+    <view class='teacher-icon'>
+    {{icon}}
+    </view>
+    <view class='teacher-name'>
+    {{name}}
+    </view>
+    <view class='teacher-des'>
+    {{des}}
+    </view>
+    <view class='teacher-foucs' bindtap='foucsT'>
+    <!-- {{foucs?已关注:关注}} -->
+    </view>
+  </view>
+</template>
