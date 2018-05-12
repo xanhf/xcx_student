@@ -7,14 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    qDetai:{},
-    commentModal:{
-      title:"评论",
-      confirm:"确认",
-      cancel:"取消",
-      placeholder:"请输入内容",
-      hiddenmodalput:true
-    }
+    qDetai:{}
   },
 
   /**
@@ -108,9 +101,8 @@ Page({
    * 评论
    */
   commentClick:function(event){
-    this.data.commentModal.hiddenmodalput = false;
-    this.setData({
-      commentModal: this.data.commentModal
+    wx.navigateTo({
+      url: '../comment/comment?id=' + this.data.qDetai.id + "&type=question"
     });
   },
   /**
@@ -125,39 +117,11 @@ Page({
     this.data.commentText = inputData.detail.value;
   },
   /**
-   * 确认评论
+   * 评论成功
    */
-  confirm:function(event){
-    if (this.data.commentText){
-      this.data.commentModal.hiddenmodalput = true;
-      this.setData({
-        commentModal: this.data.commentModal
-      });
-      serviceApi.qComment(this.data.qDetai.id, this.data.commentText).then(res => {
-        this.commitList.addNewComment(this.data.commentText);
-        wx.showToast({
-          title: '评论成功',
-          icon: "success",
-          duration: 1000
-        })
-      });
-    }else{
-      wx.showToast({
-        title: '请输入评论内容',
-        icon: 'none',
-        duration: 1000
-      })
-    }
+  confirm: function (commentText){
+    this.commitList.addNewComment(commentText);
   },
-  /**
-   * 取消评论
-   */
-  cancel:function(event){
-    console.log(event);
-    this.data.commentModal.hiddenmodalput = true;
-    this.setData({
-      commentModal: this.data.commentModal
-    });
-  }
+
 
 })

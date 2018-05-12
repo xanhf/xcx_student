@@ -15,5 +15,7 @@
     bindtap='foucsT'>
      {{foucsT&&foucsT==1?'已关注':'关注'}} 
     </view>
+    <image class="close" src='../../images/close.png' bindtap='closeT'>
+    </image>
   </view>
 </template>

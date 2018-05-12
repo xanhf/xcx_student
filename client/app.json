@@ -13,7 +13,8 @@
     "pages/answerResult/answerResult",
     "pages/answerRank/answerRank",
     "pages/videoDetail/videoDetail",
-    "pages/videoList/videoList"
+    "pages/videoList/videoList",
+    "pages/comment/comment"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

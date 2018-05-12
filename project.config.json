@@ -38,6 +38,12 @@
 					"name": "排行",
 					"pathName": "pages/answerRank/answerRank",
 					"query": "id=5"
+				},
+				{
+					"id": 2,
+					"name": "comment",
+					"pathName": "pages/comment/comment",
+					"query": "type=video&id=1"
 				}
 			]
 		}

@@ -32,5 +32,11 @@ border-radius:200rpx;
 padding-left:20rpx;
 padding-right:20rpx;
 border-radius: 5rpx;
-
+}
+.close{
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
 }

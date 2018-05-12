@@ -31,7 +31,7 @@ Page({
   onReady: function () {
     this.videoContext = wx.createVideoContext('video')
     this.commitList = this.selectComponent("#commitList");
-
+    this.refreshComment();
     this.setData({
       info: this.data.info,
     });
@@ -48,7 +48,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    this.videoContext.pause();
   },
 
   /**
@@ -117,20 +117,34 @@ Page({
       });
     });
   },
+  /**
+   * 点击选集
+   */
   clickvideo:function(event){
+    if (this.data.title.select == event.currentTarget.dataset.position){
+      return;
+    }
     this.videoContext.pause();
     this.data.title.select = event.currentTarget.dataset.position;
-    this.refreshComment(this.data.title.videoList[this.data.title.select - 1].id);
+    this.refreshComment();
     this.setData({
       title: this.data.title,
       videoUrl: this.data.title.videoList[this.data.title.select - 1].url
     });
   },
 /**
- * 评论
+ * 评论 url: '../answerRank/answerRank?id=' + this.data.qId
  */
   commentClick:function(event){
-
+    wx.navigateTo({
+      url: '../comment/comment?id=' + this.data.title.videoList[this.data.title.select - 1].id+"&type=video"
+    });
+  },
+  /**
+   * 评论成功
+   */
+  confirm: function (commentText) {
+    this.commitList.addNewComment(commentText);
   },
   /**
    * 更新当前视频的阅读量
@@ -148,6 +162,7 @@ Page({
   videoDetial:function(id,tId){
     serviceApi.videoDetail(id, tId).then(res => {
       this.data.title.videoList = res.data.videoList;
+      this.refreshComment();
       this.data.exdata = res.data.exdata;
       this.setData({
         exdata: this.data.exdata,
@@ -161,15 +176,33 @@ Page({
   /**
    * 刷新评论列表
    */
-  refreshComment:function(id){
-    this.commitList.setId(id);
+  refreshComment:function(){
+    if (!this.commitList){
+        return;
+    }
+    if (this.data.title.videoList.length<=0){
+        return;
+    }
+    this.commitList.setId(this.data.title.videoList[this.data.title.select - 1].id);
     this.commitList.pullRefresh();
   },
   /**
    * chakanlaoshi
    */
   viewTeacher:function(event){
+    if (this.data.isShowTeacher){
+      return;
+    }
     this.data.isShowTeacher=true;
+    this.setData({
+      isShowTeacher: this.data.isShowTeacher
+    });
+  },
+  /**
+   * 关闭老师信息
+   */
+  closeT:function(event){
+    this.data.isShowTeacher = false;
     this.setData({
       isShowTeacher: this.data.isShowTeacher
     });
