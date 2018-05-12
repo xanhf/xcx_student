@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isShowTeacher:false,
     info:{},
     title:{
       videoList: [],
@@ -84,16 +85,18 @@ Page({
    * 关注老师
    */
   foucsT:function(event){
-    if (event.currentTarget.dataset.parise == 0) {
-      event.currentTarget.dataset.parise = 1;
+    if (event.currentTarget.dataset.foucst == 0) {
+      event.currentTarget.dataset.foucst = 1;
     } else {
-      event.currentTarget.dataset.parise = 0;
+      event.currentTarget.dataset.foucst = 0;
     }
-    serviceApi.focusT(event.currentTarget.dataset.parise, this.data.title.videoList[0].vId).then(res => {
+    serviceApi.focusT(event.currentTarget.dataset.foucst, this.data.exdata.id).then(res => {
       //关注老师
-      this.data.exdata.foucs = event.currentTarget.dataset.parise;
+      this.data.exdata.foucsT = event.currentTarget.dataset.foucst;
+      this.data.isShowTeacher = false;
       this.setData({
-        exdata: this.data.exdata
+        exdata: this.data.exdata,
+        isShowTeacher: this.data.isShowTeacher
       });
     });
   },
@@ -161,5 +164,14 @@ Page({
   refreshComment:function(id){
     this.commitList.setId(id);
     this.commitList.pullRefresh();
+  },
+  /**
+   * chakanlaoshi
+   */
+  viewTeacher:function(event){
+    this.data.isShowTeacher=true;
+    this.setData({
+      isShowTeacher: this.data.isShowTeacher
+    });
   }
 })

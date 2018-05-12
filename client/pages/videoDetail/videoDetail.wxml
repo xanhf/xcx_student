@@ -18,9 +18,7 @@
 <image class='video-icon-bottom' src='../../images/comment.png'></image>
 评论
 </view>
-
- <import src="../../template/modal_teacher_foucs.wxml"/>
- <template is="modal_teacher_foucs"/>
-
 </view>
+ <import src="../../template/modal_teacher_foucs.wxml"/>
+ <template is="modal_teacher_foucs" data="{{...exdata,isShowTeacher}}"/>
 

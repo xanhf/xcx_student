@@ -1,5 +1,6 @@
-/* pages/videoDetail/videoDetail.wxss */
+/* pages/videoDetail/videoDetail.wxss modal_teacher_foucs */
 @import "../../template/video_detail_info.wxss";
+@import "../../template/modal_teacher_foucs.wxss";
 @import "../../template/video_select_scrool_x.wxss";
 page {
   overflow-y: none;

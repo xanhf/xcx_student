@@ -10,7 +10,7 @@
 <view class='video-info-pnum'>
 {{pnum}}人观看
 </view>
-<view class='video-info-teacher'>
+<view class='video-info-teacher' bindtap='viewTeacher'>
 开讲人
 </view>
 </view>
