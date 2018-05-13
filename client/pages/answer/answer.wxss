@@ -3,24 +3,53 @@
   padding-left: 20rpx;
   padding-right: 20rpx;
   padding-top: 5rpx;
-}
-.answer-header{
-   border-bottom: 1px solid rgba(0, 0, 0, .1); 
-   display: flex;
-   height: 90rpx;
-   justify-content: space-between;
-   align-items: center
-}
-.radio-group{
-  padding-left: 40rpx;
   display: flex;
   flex-direction: column;
-  padding-top: 20rpx;
-}
-.radio{
-  min-height: 80rpx;
-   border-bottom: 1px solid rgba(0, 0, 0, .1); 
-  display: flex;
   align-items: center;
-  margin-top: 10rpx;
+}
+.answer-position{
+  margin-top:20rpx;
+background:gold;
+border-radius:30rpx;
+height:60rpx;
+width:50%;
+text-align:center;
+}
+
+.answer-title{
+  width: 100%;
+border-radius: 20rpx;
+height: 300rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20rpx;
+margin-top:30rpx;
+
+}
+.answer-choose{
+  text-align: center;
+  margin-top: 20rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+background: greenyellow;
+font-size: 20rpx;
+width: 100%;
+}
+.choose{
+  background: green;
+}
+.next{
+  text-align: center;
+    margin-top: 50rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+ background: green;
+font-size: 20rpx;
+width:50%;
+line-height:60rpx;
+
 }

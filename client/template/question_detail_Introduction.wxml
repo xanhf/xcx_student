@@ -8,14 +8,21 @@
       {{des}}
       </view>
 </view>
-<navigator url='../questionReview/questionReview?id={{id}}'>
+
 <view class='question-detail-review'>
-<view class='introduction-title qview'>
+<navigator url='../questionReview/questionReview?id={{id}}' class='introduction-title border qview'>
+<view >
 题目预览
 </view>
-<view class='question-review-text'>
-共{{qNum}}个题目
+</navigator>
+<view class='introduction-title border qview'>
+相关视频
 </view>
+<navigator url='../answerRank/answerRank?id={{id}}' class='introduction-title border qview'>
+<view>
+排行榜
 </view>
 </navigator>
+</view>
+
 </template>

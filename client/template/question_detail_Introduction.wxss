@@ -1,7 +1,7 @@
 .question-introduction{
   background: white;
   padding: 20rpx;
-  border-bottom: 1px solid #e1e1e1;
+  padding-bottom:40rpx;
 }
 .introduction-title{
   font-size: 30rpx;
@@ -17,16 +17,22 @@
 }
 .question-detail-review{
   background: white;
-  padding: 20rpx;
+padding-left: 20rpx;
+padding-right: 20rpx;
   height: 70rpx;
   display: flex;
   align-items: center;
-  justify-content: space-between; border-bottom:1px solid #e1e1e1;
+  position: relative;
+  justify-content: space-around; 
 }
 .question-review-text{
   font-size: 20rpx;
   color: greenyellow;
 }
 .qview{
-  margin: 0;
+  width: 31%;
+  height: 100%;
+   display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -16,6 +16,7 @@ padding:10rpx;
 font-size:20rpx;
 color:gray;
 padding:10rpx;
+padding-right: 150rpx;
 }
 .video-info-pnum{
 position:absolute;
@@ -26,7 +27,7 @@ color:black;
 }
 .video-info-teacher{
 position:absolute;
-right:20px;
+right:15px;
 bottom:12px;
 font-size:27rpx;
 color:black;

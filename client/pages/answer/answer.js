@@ -6,19 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items: [
-      { name: 'a', value: '美美国美国美国美国美国美国美国美国美国美国美国美国美国美国美国国' },
-      { name: 'b', value: '中国'},
-      { name: 'c', value: '巴西' },
-      { name: 'd', value: '日本' }
-    ]
+    items: [],
   },
 
   /**
    * 选择完成
    */
-  radioChange: function (e) {
-    this.data.choose = e.detail.value;
+  choose: function (e) {
+    this.data.choose = e.currentTarget.dataset.name;
+    this.setData({
+      choose: this.data.choose
+    });
   },
   /**
    * 点击进入下一题
@@ -104,7 +102,9 @@ Page({
    * {"topicId":1,"title":"什么是中国下面介绍","a":"是只是大披萨的","b":"ask的发丝的","c":"节哀哦大家啊","d":"觉得是佛佛就","correct":"a","nextId":6,"score":10,"qId":5,"durationTime":"25","position":1}}
    */
   qftopic: function (qId){
-    
+    wx.showLoading({
+      title: '正在加载请稍后...',
+    })
     serviceApi.qftopic(qId).then(res => {
       this.handlerData(res);
     });
@@ -114,6 +114,9 @@ Page({
    * 获取下一道提
    */
   qtopic: function (topicId){
+    wx.showLoading({
+      title: '正在加载请稍后...',
+    })
     serviceApi.qtopic(topicId).then(res => {
       this.handlerData(res);
     });
@@ -123,16 +126,19 @@ Page({
    * 处理数据
    */
   handlerData: function (res) {
+    wx.hideLoading();
     this.data.res = res.data;
     this.data.items = [];
     this.data.title = res.data.title;
+    this.data.position = res.data.position;
     this.data.items[0] = { name: "a", value: res.data.a };
     this.data.items[1] = { name: "b", value: res.data.b };
     this.data.items[2] = { name: "c", value: res.data.c };
     this.data.items[3] = { name: "d", value: res.data.d };
     this.setData({
       items: this.data.items,
-      title: this.data.title
+      title: this.data.title,
+      position: this.data.position 
     });
   },
 

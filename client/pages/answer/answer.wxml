@@ -1,18 +1,18 @@
 <!--答题页面的ui-->
 <view class='answer-container'>
-  <view class='answer-header'>
-  <view class='answer-title' >
+  <view class='answer-position'>
+  第{{position}}题
+  </view>
+  <view class='answer-title border'>
   {{title}}
   </view>
-  <view class='next-answer' bindtap='nextAnswer'>
-  下一题
-  </view>
-  </view>
-  <view class='answer-question'>
-<radio-group class="radio-group" bindchange="radioChange">
-  <label class="radio" wx:for="{{items}}" wx:key="{{items.name}}">
-    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
-  </label>
-</radio-group>
-  </view>
+ <block wx:for="{{items}}" wx:key="{{item.name}}">
+ <view class='answer-choose {{choose==item.name?"choose":""}}' 
+data-name='{{item.name}}'  bindtap='choose'>
+ {{item.value}}
+ </view>
+ </block>
+ <view class='next' bindtap='nextAnswer'>
+ 下一题
+ </view>
 </view>

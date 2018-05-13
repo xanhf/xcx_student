@@ -24,7 +24,7 @@
   </block>
 </view>
 <navigator url="../videoList/videoList?id={{item.classId}}">
-<view class='more-video' hidden='{{!isMore}}'>
+<view class='more-video' hidden='{{!item.isMore}}'>
 查看全部
 </view>
 </navigator>
