@@ -4,8 +4,18 @@
   justify-content: space-between;
   align-items: center;
 }
+.rank-position{
+  margin-right: 20rpx;
+  font-size: 40rpx;
+}
+.one_user{
+position:absolute;
+top:30rpx;
+left:250rpx;
+height:90rpx;
+width:100rpx;
+}
 .user{
-  width: 20%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,6 +30,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+   margin-left: 10rpx
 }
 .user_name{
   font-size: 30rpx;

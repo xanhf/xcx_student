@@ -42,7 +42,7 @@ const insertqfeedbackData = async (ctx, next) => {
 const checkavgbyqid = async (ctx, next) => {
   let qNumId = ctx.request.query["id"];
   try {
-    const dataCount = await mysql("qfeedback").select("openId", "qId").sum('score as scoresum').where("qId", qNumId).groupBy('openId').orderBy("scoresum", 'desc').having('scoresum', '>', 0);
+    const dataCount = await mysql("qfeedback").select("openId", "qId").sum('score as scoresum').where("qId", qNumId).groupBy('openId').orderBy("scoresum", 'desc').having('scoresum', '>=', 0);
      handleData(ctx, dataCount);
     await next()//执行下一个中间件
   } catch (e) {
@@ -80,7 +80,7 @@ const rankList = async (ctx, next) => {
   let page = ctx.request.query["page"];
   let pageSize = ctx.request.query["pageSize"];
   try {
-    const dataCount = await mysql("qfeedback").select("qfeedback.openId", "qfeedback.qId", "cSessionInfo.user_info").sum('score as scoresum').where("qfeedback.qId", qNumId).groupBy('qfeedback.openId',"cSessionInfo.user_info").orderBy("scoresum", 'desc').having('scoresum', '>', 0).limit(pageSize).offset(page * pageSize).leftJoin('cSessionInfo', 'qfeedback.openId', 'cSessionInfo.open_id');
+    const dataCount = await mysql("qfeedback").select("qfeedback.openId", "qfeedback.qId", "cSessionInfo.user_info").sum('score as scoresum').where("qfeedback.qId", qNumId).groupBy('qfeedback.openId',"cSessionInfo.user_info").orderBy("scoresum", 'desc').having('scoresum', '>=', 0).limit(pageSize).offset(page * pageSize).leftJoin('cSessionInfo', 'qfeedback.openId', 'cSessionInfo.open_id');
     handleData(ctx, dataCount);
     await next()//执行下一个中间件
   } catch (e) {
