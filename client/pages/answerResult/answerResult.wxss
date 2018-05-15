@@ -1,7 +1,75 @@
 /* pages/answerResult/answerResult.wxss */
 .red{
-  color: red;
+  background: red;
 }
 .nomal{
- color: green
+ background: green
+}
+.quesition{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 40rpx;
+  color: black;
+  font-size: 25rpx;
+  text-align: center;
+  margin-right: 30rpx;
+}
+.answer-head{
+  margin-top: 10rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.answer-title{
+  font-size: 70rpx;
+  color: gold;
+  font-weight: bold;
+}
+.answer-rank{
+  font-size: 40rpx;
+  color: black;
+  font-weight: bold;
+}
+.answer-other{
+  margin-top: 10rpx;
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.other-score{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.answer-result{
+  font-size: 40rpx;
+  color: black
+}
+.answer-result-conter{
+  font-size: 30rpx;
+  color: gray;
+}
+.answer-detail{
+  padding: 20rpx;
+}
+.answer-position{
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between
+}
+.next{
+  display: flex;
+  justify-content: center;
+}
+.go{
+  border-radius: 25rpx;
+  height: 50rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  background: ghostwhite
 }

@@ -1,0 +1,20 @@
+<!--排行榜信息-->
+<wxs src="../utils/format.wxs" module="format" />
+<template name="answer_rank_item">
+  <view class='answer_container border-bottom'>
+    <view class='user'>
+      <image class='user_image' src='{{format.formatUserInfo(user_info).avatarUrl}}'></image>
+      <view class='user_info'>
+        <view class='user_name'>
+          {{format.formatUserInfo(user_info).nickName}}
+        </view>
+        <view class='user_city'>
+          {{format.formatUserInfo(user_info).city}}
+        </view>
+      </view>
+    </view>
+    <view class='user_score'>
+      分数:{{scoresum}}
+    </view>
+  </view>
+</template>

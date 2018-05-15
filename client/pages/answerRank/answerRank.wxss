@@ -1,1 +1,13 @@
 /* pages/answerRank/answerRank.wxss */
+@import "../../template/answer_rank_item.wxss";
+.rank-a{
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.one_user{
+position:absolute;
+top:40rpx;
+left:250rpx;
+height:90rpx;
+width:100rpx;
+}
