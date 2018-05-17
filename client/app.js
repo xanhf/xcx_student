@@ -9,6 +9,15 @@ App({
   onLaunch: function () {
   },
   onShow: function (options) {
+    this.getUserInfo();
+  },
+  onHide: function () {
+
+  },
+  onError: function (msg) {
+
+  },
+  getUserInfo:function(){
     wxAPI.login()
       .then(d => {
         console.log("登陆", d);
@@ -33,11 +42,5 @@ App({
       .catch(e => {
         console.log(e);
       })
-  },
-  onHide: function () {
-
-  },
-  onError: function (msg) {
-
-  },
+  }
 })

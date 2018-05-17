@@ -1,66 +1,32 @@
-// pages/me/me.js
+var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    gridList: [
+      { enName: 'vhistory', zhName: '视频回看' },
+      { enName: 'qhistory', zhName: '答题记录' },
+      { enName: 'shake', zhName: '摇一摇' },
+      { enName: 'myquestion', zhName: '我的题库' }
+    ],
+    skin: 'http://img95.699pic.com/photo/50091/3557.jpg_wh860.jpg'
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  onReady:function(){
+    if (app.globalData.userInfo != null) {
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
+    } else {
+      app.getUserInfo();
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  viewGridDetail: function (e) {
+    var data = e.currentTarget.dataset
+    wx.navigateTo({
+      url: "../" + data.url + '/' + data.url
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  viewSkin: function (event) {
+    wx.navigateTo({
+      url: "../skin/skin"
+    })
   }
 })
