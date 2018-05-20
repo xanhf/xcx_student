@@ -1,0 +1,15 @@
+.multi-choose{
+ text-align: center;
+  margin-top: 20rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+background: greenyellow;
+font-size: 20rpx;
+width: 100%;
+}
+.multi-select{
+  background: green;
+}

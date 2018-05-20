@@ -10,12 +10,26 @@ Page({
   },
 
   /**
-   * 选择完成
+   * 单选选择完成
    */
   choose: function (e) {
     this.data.choose = e.currentTarget.dataset.name;
     this.setData({
       choose: this.data.choose
+    });
+  },
+  /**
+   * 多选 position
+   */
+  multiChoose: function (e){
+    let item = this.data.items[e.currentTarget.dataset.position];
+    if (item.choose && item.choose==1){
+      item.choose=0;
+    }else{
+      item.choose=1;
+    }
+    this.setData({
+      items: this.data.items
     });
   },
   /**
@@ -132,10 +146,17 @@ Page({
     this.data.title = res.data.topic.title;
     this.data.position = res.data.topic.position;
     this.data.items = res.data.qDetails;
+    let title={
+      title: '单项选择'
+    };
+    if (this.data.res.tType==1){
+      title.title="多项选择"
+    }
+    wx.setNavigationBarTitle(title)
     this.setData({
       items: this.data.items,
       title: this.data.title,
-      position: this.data.position 
+      position: this.data.position
     });
   },
 
@@ -143,6 +164,7 @@ Page({
    * 提交答题情况  topicId, qId, choose, score
    */
   next:function(){
+    this.checkChoose();
     let score = this.data.choose == this.data.res.correct ? this.data.res.score:0;
     serviceApi.qfeedback(this.data.res.topicId, this.data.res.qId, this.data.choose, score).then(res => {
       if (this.data.res.nextId) {//说明有下一题
@@ -155,6 +177,16 @@ Page({
         })
       }
     });
+  },
+  checkChoose:function(){
+    if (this.data.res.tType == 1){
+      this.data.choose="";
+      for(item in this.data.items){
+       if(item.choose&&item.choose==1){
+         this.data.choose += item.value;
+       }
+      };
+    }
   }
 
 })

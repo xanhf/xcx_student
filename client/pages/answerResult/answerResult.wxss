@@ -58,7 +58,6 @@
 .answer-position{
   padding: 20rpx;
   display: flex;
-  justify-content: space-between
 }
 .next{
   display: flex;
