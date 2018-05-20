@@ -12,6 +12,7 @@ const { getClassQestion, getListByClassId, getqDetail} = require('../sqlmiddle/q
 const { getqComment, insertComment } = require('../sqlmiddle/qcomment.js');
 const { toParise, getjudgePraise } = require('../sqlmiddle/qpraise.js');
 const { getFirstTopic, getTopicById, getTopicNameByQid } = require('../sqlmiddle/topic.js');
+const { getFirstQDetail, getDetailsById } = require('../sqlmiddle/qdetails.js');
 const { insertqfeedbackData, checkavgbyqid, feedbackResult, rankList, checkUser } = require('../sqlmiddle/qfeedback.js');
 
 /**
@@ -76,9 +77,9 @@ router.get('/qcomment', insertComment, controllers.qcomment);
 //点赞和取消点赞的接口
 router.get('/qparise', toParise, controllers.qpraise);
 //获取套题的第一道题的接口
-router.get('/qftopic', getFirstTopic, controllers.topic);
+router.get('/qftopic', getFirstTopic, getFirstQDetail, controllers.topic);
 //获取题的详情根据topicId
-router.get('/qtopic', getTopicById, controllers.topic);
+router.get('/qtopic', getTopicById, getDetailsById,controllers.topic);
 //获取当前这套题下面的所有标题信息getTopicNameByQid
 router.get('/qtopicnamelist', getTopicNameByQid, controllers.topic);
 //答题情况的反馈

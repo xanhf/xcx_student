@@ -127,14 +127,11 @@ Page({
    */
   handlerData: function (res) {
     wx.hideLoading();
-    this.data.res = res.data;
+    this.data.res = res.data.topic;
     this.data.items = [];
-    this.data.title = res.data.title;
-    this.data.position = res.data.position;
-    this.data.items[0] = { name: "a", value: res.data.a };
-    this.data.items[1] = { name: "b", value: res.data.b };
-    this.data.items[2] = { name: "c", value: res.data.c };
-    this.data.items[3] = { name: "d", value: res.data.d };
+    this.data.title = res.data.topic.title;
+    this.data.position = res.data.topic.position;
+    this.data.items = res.data.qDetails;
     this.setData({
       items: this.data.items,
       title: this.data.title,

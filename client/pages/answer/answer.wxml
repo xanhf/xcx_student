@@ -6,10 +6,10 @@
   <view class='answer-title border'>
   {{title}}
   </view>
- <block wx:for="{{items}}" wx:key="{{item.name}}">
- <view class='answer-choose {{choose==item.name?"choose":""}}' 
-data-name='{{item.name}}'  bindtap='choose'>
- {{item.value}}
+ <block wx:for="{{items}}" wx:key="{{item.value}}">
+ <view class='answer-choose {{choose==item.value?"choose":""}}' 
+data-name='{{item.value}}'  bindtap='choose'>
+ {{item.title}}
  </view>
  </block>
  <view class='next' bindtap='nextAnswer'>
