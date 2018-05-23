@@ -3,9 +3,19 @@
   <view class='answer-position'>
     第{{position}}题
   </view>
-  <view class='answer-title border'>
+   <!--文字-->
+  <view wx:if="{{}}" class='answer-title border'>
     {{title}}
   </view>
+  <!--视频-->
+    <view wx:elif="" class='answer-title border'>
+    {{title}}
+  </view>
+   <!--音频-->
+    <view wx:else="" class='answer-title border'>
+    {{title}}
+  </view>
+  <!--单选-->
   <view wx:if='{{!multi}}' class='answer-question-container'>
     <block wx:for="{{items}}" wx:key="{{item.value}}">
       <view class='answer-choose {{choose==item.value?"choose":""}}' data-name='{{item.value}}' bindtap='choose'>
@@ -13,6 +23,7 @@
       </view>
     </block>
   </view>
+   <!--多选-->
   <view wx:else class='answer-question-container'>
     <import src="../../template/answer_multi_select.wxml" />
     <template is="answer_multi_select" data="{{items}}" />
