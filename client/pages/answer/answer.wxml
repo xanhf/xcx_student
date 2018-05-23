@@ -1,18 +1,23 @@
 <!--答题页面的ui-->
 <view class='answer-container'>
   <view class='answer-position'>
-  第{{position}}题
+    第{{position}}题
   </view>
   <view class='answer-title border'>
-  {{title}}
+    {{title}}
   </view>
- <block wx:for="{{items}}" wx:key="{{item.value}}">
- <view class='answer-choose {{choose==item.value?"choose":""}}' 
-data-name='{{item.value}}'  bindtap='choose'>
- {{item.title}}
- </view>
- </block>
- <view class='next' bindtap='nextAnswer'>
- 下一题
- </view>
+  <view wx:if='{{!multi}}' class='answer-question-container'>
+    <block wx:for="{{items}}" wx:key="{{item.value}}">
+      <view class='answer-choose {{choose==item.value?"choose":""}}' data-name='{{item.value}}' bindtap='choose'>
+        {{item.title}}
+      </view>
+    </block>
+  </view>
+  <view wx:else class='answer-question-container'>
+    <import src="../../template/answer_multi_select.wxml" />
+    <template is="answer_multi_select" data="{{items}}" />
+    </view>
+    <view class='next' bindtap='nextAnswer'>
+      下一题
+    </view>
 </view>

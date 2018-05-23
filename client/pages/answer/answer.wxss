@@ -1,4 +1,8 @@
 /* pages/answer/answer.wxss */
+@import "../../template/answer_multi_select.wxss";
+.answer-question-container{
+  width: 100%
+}
 .answer-container{
   padding-left: 20rpx;
   padding-right: 20rpx;

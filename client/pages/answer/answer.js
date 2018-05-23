@@ -36,6 +36,7 @@ Page({
    * 点击进入下一题
    */
   nextAnswer:function(e){
+    this.checkChoose();
     //先判断是否选择
     if (this.data.choose) {//已经选择 qfeedback
       this.next();
@@ -156,7 +157,8 @@ Page({
     this.setData({
       items: this.data.items,
       title: this.data.title,
-      position: this.data.position
+      position: this.data.position,
+      multi: this.data.res.tType == 1
     });
   },
 
@@ -164,7 +166,6 @@ Page({
    * 提交答题情况  topicId, qId, choose, score
    */
   next:function(){
-    this.checkChoose();
     let score = this.data.choose == this.data.res.correct ? this.data.res.score:0;
     serviceApi.qfeedback(this.data.res.topicId, this.data.res.qId, this.data.choose, score).then(res => {
       if (this.data.res.nextId) {//说明有下一题
@@ -180,8 +181,8 @@ Page({
   },
   checkChoose:function(){
     if (this.data.res.tType == 1){
-      this.data.choose="";
-      for(item in this.data.items){
+      this.data.choose=false;
+      for(var item of this.data.items){
        if(item.choose&&item.choose==1){
          this.data.choose += item.value;
        }
