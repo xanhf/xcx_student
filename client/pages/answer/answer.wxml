@@ -4,16 +4,17 @@
     第{{position}}题
   </view>
    <!--文字-->
-  <view wx:if="{{}}" class='answer-title border'>
+  <view wx:if="{{topicType==0}}" class='answer-title border'>
     {{title}}
   </view>
   <!--视频-->
-    <view wx:elif="" class='answer-title border'>
-    {{title}}
+    <view wx:elif="{{topicType==1}}" class='answer-title border'>
+    <video class='video' autoplay='{{true}}' show-fullscreen-btn='{{false}}' src='{{multimedia}}'>
+    </video>
   </view>
    <!--音频-->
-    <view wx:else="" class='answer-title border'>
-    {{title}}
+    <view wx:else="{{topicType==2}}" class='answer-title border' bindtap='playmusic'>
+    点击听题目
   </view>
   <!--单选-->
   <view wx:if='{{!multi}}' class='answer-question-container'>

@@ -1,7 +1,7 @@
 // pages/answer/answer.js.  答题的页面
 var serviceApi = require('../../utils/serviceAPI.js');
+var innerAudioContext = wx.createInnerAudioContext();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -19,7 +19,7 @@ Page({
     });
   },
   /**
-   * 多选 position
+   * 多选 position topicType
    */
   multiChoose: function (e){
     let item = this.data.items[e.currentTarget.dataset.position];
@@ -77,14 +77,18 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    if (!innerAudioContext.paused){
+      innerAudioContext.stop()
+    }
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if (!innerAudioContext.paused) {
+      innerAudioContext.stop()
+    }
   },
 
   /**
@@ -136,13 +140,29 @@ Page({
       this.handlerData(res);
     });
 },
-
+  playmusic:function(event){
+    if (innerAudioContext.paused){//停止
+      innerAudioContext.play()
+    }else{//开启
+      innerAudioContext.pause()
+    }  
+    innerAudioContext.onPlay(() => {
+      console.log('开始播放')
+    })
+    innerAudioContext.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
+    })
+  },
   /**
    * 处理数据
    */
   handlerData: function (res) {
     wx.hideLoading();
     this.data.res = res.data.topic;
+    if (this.data.res.topicType==2){
+      innerAudioContext.src = this.data.res.multimedia
+    }
     this.data.items = [];
     this.data.title = res.data.topic.title;
     this.data.position = res.data.topic.position;
@@ -158,7 +178,9 @@ Page({
       items: this.data.items,
       title: this.data.title,
       position: this.data.position,
-      multi: this.data.res.tType == 1
+      multi: this.data.res.tType == 1,
+      topicType: this.data.res.topicType,
+      multimedia: this.data.res.multimedia
     });
   },
 
@@ -181,7 +203,7 @@ Page({
   },
   checkChoose:function(){
     if (this.data.res.tType == 1){
-      this.data.choose=false;
+      this.data.choose="";
       for(var item of this.data.items){
        if(item.choose&&item.choose==1){
          this.data.choose += item.value;

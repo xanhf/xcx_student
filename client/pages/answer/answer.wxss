@@ -3,6 +3,12 @@
 .answer-question-container{
   width: 100%
 }
+.video{
+  width: 80%;
+   position: fixed;  
+  z-index: 99999; 
+  height:300rpx;
+}
 .answer-container{
   padding-left: 20rpx;
   padding-right: 20rpx;
