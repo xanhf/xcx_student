@@ -1,0 +1,33 @@
+<!--item选择视频的模版 http://img95.699pic.com/photo/50049/1821.jpg_wh300.jpg-->
+<template name="answer_item_select">
+<view class='answer-item-v border {{choose?"a-select":""}}'> 
+<block wx:if="{{item.type==1}}">
+<video class='answer-video' src='{{item.multimedia}}'>
+</video>
+</block>
+<block wx:elif="{{item.type==2}}">
+    <image class='answer-video border answer-image' src="{{item.imagebg}}">
+    </image>
+      <image class='answer-image-index'
+      src='{{choose?"../../images/music_select.png":"../../images/music.png"}}'>
+    </image>
+</block>
+<block wx:else>
+ <image class='answer-video border answer-image' src="{{item.imagebg}}">
+  </image>
+  <view class='answer-text'>
+  {{item.title}}
+  </view>
+</block>
+<block wx:if='{{choose}}'>
+<view class='choose-v'>
+已选择
+</view>
+</block>
+<block wx:else>
+<view class='choose-u'>
+请选择
+</view>
+</block>
+</view>
+</template>

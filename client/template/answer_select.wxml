@@ -1,0 +1,8 @@
+  <template name="answer_select">
+  <block wx:for="{{items}}" wx:key="{{item.value}}">
+      <view class='multi-choose' data-name='{{item.value}}' data-position='{{index}}' bindtap='choose'>
+         <import src="./answer_item_select.wxml" />
+<template is="answer_item_select" data="{{choose:choose==item.value,item:item}}" />
+      </view>
+    </block>
+    </template>

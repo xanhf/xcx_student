@@ -180,7 +180,9 @@ Page({
       position: this.data.position,
       multi: this.data.res.tType == 1,
       topicType: this.data.res.topicType,
-      multimedia: this.data.res.multimedia
+      multimedia: this.data.res.multimedia,
+      qType: this.data.res.qType,
+      imagebg: this.data.res.imagebg
     });
   },
 

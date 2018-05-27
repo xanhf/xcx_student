@@ -3,26 +3,30 @@
   <view class='answer-position'>
     第{{position}}题
   </view>
+
    <!--文字-->
   <view wx:if="{{topicType==0}}" class='answer-title border'>
-    {{title}}
+      <image class='answer-bg' src='{{imagebg}}'>
+  </image>
+  <text class='title title-3d'>{{title}}</text>
   </view>
   <!--视频-->
     <view wx:elif="{{topicType==1}}" class='answer-title border'>
     <video class='video' autoplay='{{true}}' show-fullscreen-btn='{{false}}' src='{{multimedia}}'>
     </video>
+      <image class='answer-bg' src='{{imagebg}}'>
+  </image>
   </view>
    <!--音频-->
     <view wx:else="{{topicType==2}}" class='answer-title border' bindtap='playmusic'>
-    点击听题目
+<image class='answer-bg' src='{{imagebg}}'>
+  </image>
+     <text class='title title-3d'>{{title}}</text>
   </view>
   <!--单选-->
   <view wx:if='{{!multi}}' class='answer-question-container'>
-    <block wx:for="{{items}}" wx:key="{{item.value}}">
-      <view class='answer-choose {{choose==item.value?"choose":""}}' data-name='{{item.value}}' bindtap='choose'>
-        {{item.title}}
-      </view>
-    </block>
+   <import src="../../template/answer_select.wxml" />
+    <template is="answer_select" data="{{items:items,choose:choose}}" />
   </view>
    <!--多选-->
   <view wx:else class='answer-question-container'>

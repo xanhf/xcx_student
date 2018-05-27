@@ -1,0 +1,50 @@
+.answer-item-v{
+width: 100%;
+position: relative;
+margin-bottom:10rpx;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 10rpx;
+border-color: chartreuse;
+ font-size: 25rpx;
+}
+.answer-image{
+   box-shadow: 0 60rpx 120rpx rgba(0, 0, 0, .4);
+}
+.answer-video{
+  margin-top: 10rpx;
+  width: 90%;
+  height: 205rpx;
+}
+.choose-v{
+  font-size: 30rpx;
+ color: chartreuse
+}
+.choose-u{
+ font-size: 30rpx;
+ color: chocolate
+}
+.a-select{
+  border-color: chocolate
+}
+.answer-image-index{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80rpx;
+    height: 80rpx;
+    margin-top: -40rpx;
+    margin-left: -40rpx;
+}
+.answer-text{
+position: absolute;
+top: 10rpx;
+left: 20rpx;
+width: 90%;
+  height: 205rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

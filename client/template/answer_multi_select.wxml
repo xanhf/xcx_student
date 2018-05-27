@@ -1,9 +1,10 @@
 <!--多选的模版-->
 <template name="answer_multi_select">
  <block wx:for="{{items}}" wx:key="{{item.value}}">
- <view class='multi-choose {{(item.choose&&item.choose==1)?"multi-select":""}}' 
-data-name='{{item.value}}' data-position='{{index}}' bindtap='multiChoose'>
- {{item.title}}
+ <view class='multi-choose' 
+data-name='{{item.value}}' data-position='{{index}}' data-type='{{item.type}}' bindtap='multiChoose'>
+   <import src="./answer_item_select.wxml" />
+<template is="answer_item_select" data="{{choose:item.choose&&item.choose==1,item:item}}" />
  </view>
  </block>
 </template>
