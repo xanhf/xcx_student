@@ -4,8 +4,8 @@ Page({
     gridList: [
       { enName: 'vhistory', zhName: '视频回看' },
       { enName: 'qhistory', zhName: '答题记录' },
-      { enName: 'shake', zhName: '摇一摇' },
-      { enName: 'myquestion', zhName: '我的题库' }
+      { enName: 'vip', zhName: '购买纪录' },
+      { enName: 'about', zhName: '关于我们' }
     ],
     skin: 'http://img95.699pic.com/photo/50091/3557.jpg_wh860.jpg'
   },
@@ -22,11 +22,6 @@ Page({
     var data = e.currentTarget.dataset
     wx.navigateTo({
       url: "../" + data.url + '/' + data.url
-    })
-  },
-  viewSkin: function (event) {
-    wx.navigateTo({
-      url: "../skin/skin"
     })
   }
 })

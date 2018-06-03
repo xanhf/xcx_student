@@ -1,2 +1,9 @@
 <!--pages/qhistory/qhistory.wxml-->
-<text>pages/qhistory/qhistory.wxml</text>
+<view class='question-list'>
+  <import src="../../template/questions_item.wxml" />
+  <block wx:for="{{dataList}}" wx:key="{{item.images}}">
+    <template is="questions_item" data="{{...item}}" />
+  </block>
+<import src="../../template/refresh_bottom.wxml" />
+     <template is="refresh-bottom" data="{{...pullData}}" />
+</view>

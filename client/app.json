@@ -15,11 +15,10 @@
     "pages/videoDetail/videoDetail",
     "pages/videoList/videoList",
     "pages/comment/comment",
-    "pages/skin/skin",
-    "pages/shake/shake",
     "pages/vhistory/vhistory",
     "pages/qhistory/qhistory",
-    "pages/myquestion/myquestion"
+    "pages/vip/vip",
+    "pages/about/about"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

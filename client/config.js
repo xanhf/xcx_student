@@ -62,6 +62,11 @@ var config = {
         vcommentlist: `${host}/weapp/vcommentlist`,
         //观看进度反馈的接口 
         vfeedback: `${host}/weapp/vfeedback`,
+        //视频观看的纪录 
+        getvbrowse: `${host}/weapp/getvbrowse`,
+        //答题纪录
+        getqbrowse: `${host}/weapp/getqbrowse`,
+
     }
 };
 

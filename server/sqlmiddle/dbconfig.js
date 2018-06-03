@@ -25,11 +25,12 @@ return {
   }
 }
 };
-
-const CAuthDB = require('knex')(getDb(config.db));
-const FairiesDB = require('knex')(getDb(fairies))
+const knex = require('knex');
+const CAuthDB = knex(getDb(config.db));
+const FairiesDB = knex(getDb(fairies))
 
 module.exports = {
   cAuth:CAuthDB,
-  Fairies: FairiesDB
+  Fairies: FairiesDB,
+  knex
 }

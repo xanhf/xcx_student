@@ -8,6 +8,7 @@
 	},
 	"appid": "wx0897fbee6a7e480d",
 	"projectname": "learnthink",
+	"libVersion": "1.9.9",
 	"condition": {
 		"search": {
 			"current": -1,

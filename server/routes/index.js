@@ -3,6 +3,7 @@
  */
 const router = require('koa-router')({
     prefix: '/weapp'
+    
 })
 const controllers = require('../controllers');
 const qavg = require('../middleUtil/qavg.js');
@@ -33,6 +34,33 @@ const { focusV,
 
 const { getVCommentListById,
   insertVCommentData } = require('../sqlmiddle/vcomment.js');
+
+/**
+ * 我的相关, 视频和题目总汇
+ */
+//视频和题相关联的接口
+const {getContactV,
+  getContactQ} = require("../sqlmiddle/contact.js");
+//会员相关
+const {
+  buyVlist,
+  buyTlist,
+  checkBuyQ,
+  checkBuyV,
+  buyV,
+  buyQ
+}= require("../sqlmiddle/members.js");
+//答题记录
+const {
+  qbrowse,
+  getqbrowse
+} = require("../sqlmiddle/qbrowse.js");
+//视频浏览记录相关
+const {
+  vbrowse,
+  getvbrowse
+} = require("../sqlmiddle/vbrowse.js");
+
 
 // 从 sdk 中取出中间件 
 // 这里展示如何使用 Koa 中间件完成登录态的颁发与验证
@@ -110,5 +138,29 @@ router.get('/vcomment', insertVCommentData, controllers.vcomment);
 router.get('/vcommentlist', getVCommentListById, controllers.vcomment);
 //视频进度反馈
 router.get('/vfeedback', insertvfeedbackData, controllers.vfeedback);
+
+/**
+ * 我的相关, 视频和题目总汇
+ */
+//获取相关联的视频
+router.get('/getContactV', getContactV, controllers.contact);
+//获取相关联的题
+router.get('/getContactQ', getContactQ, controllers.contact);
+//提交浏览题目
+router.get('/qbrowse', qbrowse, controllers.qbrowse);
+//获取浏览的题目
+router.get('/getqbrowse', getqbrowse, controllers.qbrowse);
+//提交浏览视频
+router.get('/vbrowse', vbrowse, controllers.vbrowse);
+//获取浏览的视频
+router.get('/getvbrowse', getvbrowse, controllers.vbrowse);
+//获取已经购买的套题
+router.get('/buyVlist', buyVlist, controllers.members);
+//获取已经购买的视频
+router.get('/buyTlist', buyTlist, controllers.members);
+//购买视频 
+router.get('/buyV', buyV, controllers.members);
+//购买题目
+router.get('/buyQ', buyQ, controllers.members);
 
 module.exports = router

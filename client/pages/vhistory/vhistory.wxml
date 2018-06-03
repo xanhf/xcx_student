@@ -1,2 +1,9 @@
 <!--pages/vhistory/vhistory.wxml-->
-<text>pages/vhistory/vhistory.wxml</text>
+<view class='video-list'>
+  <import src="../../template/video_list_item.wxml" />
+  <block wx:for="{{dataList}}" wx:key="{{item.images}}">
+    <template is="video_list_item" data="{{item}}" />
+  </block>
+<import src="../../template/refresh_bottom.wxml" />
+     <template is="refresh-bottom" data="{{...pullData}}" />
+</view>

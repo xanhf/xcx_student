@@ -1,4 +1,6 @@
 // pages/vhistory/vhistory.js
+var pullToRefresh = require('../../utils/pullToRefresh.js')
+var { config } = require('../../config.js')
 Page({
 
   /**
@@ -12,14 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    pullToRefresh.regist(this, config.service.getvbrowse, {
+      openId: getApp().globalData.openId
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    pullToRefresh.pullRefresh();
   },
 
   /**
@@ -44,17 +48,17 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
   onPullDownRefresh: function () {
-  
+    pullToRefresh.pullRefresh();
   },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * 页面上拉触底事件的处理函数 loadMore
    */
   onReachBottom: function () {
-  
+    pullToRefresh.loadMore();
   },
 
   /**
