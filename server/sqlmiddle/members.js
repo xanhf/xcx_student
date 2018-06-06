@@ -11,13 +11,31 @@ function handleData(ctx, data) {
 }
 
 /**
- * 查询当前用户购买的视频
+ * 查询购买的当前class下的视频列表
  */
-const buyVlist = async (ctx, next) => {
+const getbuyVlist = async (ctx, next) => {
   let page = ctx.request.query["page"];
   let pageSize = ctx.request.query["pageSize"];
   try {
-    const data = await mysql("members").where('openId', ctx.request.query["openId"]).andwhere('vId', '>', 0).limit(pageSize).offset(page * pageSize).leftJoin('videoclass', 'members.vId', 'videoclass.id');;
+    const data = await mysql("members").where({ openId: ctx.request.query["openId"], vclassId: ctx.request.query["vclassId"]}).limit(pageSize).offset(page * pageSize).leftJoin('videoclass', 'members.vId', 'videoclass.id');
+    handleData(ctx, data);
+    await next()//执行下一个中间件
+  } catch (e) {
+    ctx.body = {
+      code: -1,
+      error: e && e.message ? e.message : e.toString()
+    }
+  }
+};
+
+/**
+ * 查询购买的当前class下的题目列表
+ */
+const getbuyQlist = async (ctx, next) => {
+  let page = ctx.request.query["page"];
+  let pageSize = ctx.request.query["pageSize"];
+  try {
+    const data = await mysql("members").where({ openId: ctx.request.query["openId"], qclassId: ctx.request.query["qclassId"] }).limit(pageSize).offset(page * pageSize).leftJoin('QUESTION', 'members.qId', 'QUESTION.id');
     handleData(ctx, data);
     await next()//执行下一个中间件
   } catch (e) {
@@ -28,14 +46,64 @@ const buyVlist = async (ctx, next) => {
   }
 };
 /**
- * 查询当前用户购买的套题
+ * 查询当前用户购买的视频 
+ *
+ */
+const buyVlist = async (ctx, next) => {
+ var openId =  ctx.request.query["openId"];
+  try {
+    const data = await mysql("members").where('vId', '>', 0, 'openId', openId).leftJoin('videoclass', 'members.vId', 'videoclass.id').select("videoclass.className", "videoclass.classId").count('className as count').groupBy('videoclass.className' , "videoclass.classId");
+    const clist = [];
+    for (var obj of data) {
+      let calssNmae = obj.className;
+      let count = obj.count;
+      let classId = obj.classId;
+      let isMore = count > 4;
+      const cobj = {
+        calssName: calssNmae,
+        isMore: isMore,
+        classId: classId
+      };
+      const vList = await mysql("members").where('vclassId', classId).limit(count > 4 ? 4 : count).leftJoin('videoclass', 'members.vId', 'videoclass.id');
+      cobj.vList = vList;
+      clist.push(cobj);
+    }
+    handleData(ctx, clist);
+    await next()//执行下一个中间件
+  } catch (e) {
+    ctx.body = {
+      code: -1,
+      error: e && e.message ? e.message : e.toString()
+    }
+  }
+};
+let countLay = 0;
+/**
+ * 查询当前用户购买的套题 
  */
 const buyTlist = async (ctx, next) => {
-  let page = ctx.request.query["page"];
-  let pageSize = ctx.request.query["pageSize"];
+  var openId = ctx.request.query["openId"];
   try {
-    const data = await mysql("members").where('openId', ctx.request.query["openId"]).andwhere('qId', '>', 0).limit(pageSize).offset(page * pageSize).leftJoin('QUESTION', 'members.qId', 'QUESTION.id');
-    handleData(ctx, data);
+    const data = await mysql("members").where('qId', '>', 0,'openId', openId).leftJoin('QUESTION', 'members.qId', 'QUESTION.id').select("QUESTION.className", "QUESTION.classId").count('className as count').groupBy("QUESTION.className", "QUESTION.classId");
+    const clist = [];
+    for (var obj of data) {
+      let calssNmae = obj.className;
+      let count = obj.count;
+      let classId = obj.classId;
+      let isMore = count > 5;
+      let layType = countLay % 3;
+      countLay++;
+      const cobj = {
+        calssName: calssNmae,
+        isMore: isMore,
+        classId: classId,
+        layType: layType
+      };
+      const qList = await mysql("members").where('qclassId', classId).limit(count > 5 ? 5 : count).leftJoin('QUESTION', 'members.qId', 'QUESTION.id');
+      cobj.qList = qList;
+      clist.push(cobj);
+    }
+    handleData(ctx, clist);
     await next()//执行下一个中间件
   } catch (e) {
     ctx.body = {
@@ -49,7 +117,7 @@ const buyTlist = async (ctx, next) => {
  */
 const checkBuyQ = async (ctx, next) => {
   try {
-    const data = await mysql("members").where('openId', ctx.request.query["openId"], "qId", ctx.request.query["qId"]).limit(1);
+    const data = await mysql("members").where({ 'openId': ctx.request.query["openId"], "qId":ctx.request.query["qId"]}).limit(1);
     var myData ={
       isMember:false
     }
@@ -73,7 +141,7 @@ const checkBuyQ = async (ctx, next) => {
  */
 const checkBuyV = async (ctx, next) => {
   try {
-    const data = await mysql("members").where('openId', ctx.request.query["openId"], "vId", ctx.request.query["vId"]).limit(1);
+    const data = await mysql("members").where({ 'openId': ctx.request.query["openId"], "vId":ctx.request.query["vId"]}).limit(1);
     var myData = {
       isMember: false
     }
@@ -97,7 +165,7 @@ const checkBuyV = async (ctx, next) => {
  */
 const buyV = async (ctx, next) => {
   try {
-    const data = await mysql("members").insert({ openId: ctx.request.query["openId"], vId: ctx.request.query["vId"]});
+    const data = await mysql("members").insert({ openId: ctx.request.query["openId"], vId: ctx.request.query["vId"], vclassId: ctx.request.query["vclassId"]});
     handleData(ctx, data);
     await next()//执行下一个中间件
   } catch (e) {
@@ -113,7 +181,7 @@ const buyV = async (ctx, next) => {
  */
 const buyQ = async (ctx, next) => {
   try {
-    const data = data = await mysql("members").insert({ openId: ctx.request.query["openId"], qId: ctx.request.query["qId"] });
+    const data = data = await mysql("members").insert({ openId: ctx.request.query["openId"], qId: ctx.request.query["qId"], qclassId: ctx.request.query["qclassId"] });
     handleData(ctx, data);
     await next()//执行下一个中间件
   } catch (e) {
@@ -130,5 +198,7 @@ module.exports = {
   checkBuyQ,
   checkBuyV,
   buyV,
-  buyQ
+  buyQ,
+  getbuyVlist,
+  getbuyQlist
 }

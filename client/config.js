@@ -66,7 +66,18 @@ var config = {
         getvbrowse: `${host}/weapp/getvbrowse`,
         //答题纪录
         getqbrowse: `${host}/weapp/getqbrowse`,
-
+        //获取购买的视频 
+        buyVlist: `${host}/weapp/buyVlist`,
+        //获取购买的视频的列表
+        getbuyVlist: `${host}/weapp/getbuyVlist`,
+        //获取购买的题目
+        buyTlist: `${host}/weapp/buyTlist`,
+       //获取购买的题目的列表
+        getbuyTlist: `${host}/weapp/getbuyTlist`,
+        //题目的浏览记录提交
+        qbrowse: `${host}/weapp/qbrowse`,
+        //视频观看记录提交 
+        vbrowse: `${host}/weapp/vbrowse`,
     }
 };
 

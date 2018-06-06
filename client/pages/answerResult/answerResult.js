@@ -14,6 +14,7 @@ Page({
    */
   onLoad: function (options) {
     this.data.qId = options.qId;
+    this.qbrowse(this.data.qId)
     serviceApi.qresult(options.qId).then(res => {
         this.data.data=res.data.data;
         this.data.feedback = res.data.feedback;
@@ -21,6 +22,17 @@ Page({
           data: this.data.data,
           feedback: this.data.feedback 
         });
+    });
+  },
+  /**
+ * 浏览记录
+ */
+  qbrowse: function (id) {
+    serviceApi.qbrowse(id, 1).then(res => {
+      this.data.qDetai = res.data;
+      this.setData({
+        qDetai: this.data.qDetai
+      });
     });
   },
   /**

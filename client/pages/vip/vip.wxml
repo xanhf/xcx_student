@@ -1,2 +1,18 @@
-<!--pages/vip/vip.wxml-->
-
+<!--pages/vip/vip.wxml 用户购买的套题和视频的集合-->
+<view class='container'>
+<component-tab tabList="{{tabList}}" bindtabChange="tabChange" ></component-tab>
+<view class='tab-content' hidden='{{select==1}}'>
+ <import src="../../template/class_question_1.wxml"/>
+  <import src="../../template/class_question_0.wxml"/>
+  <import src="../../template/class_question_2.wxml"/>
+ <block wx:for="{{dataList}}" wx:key="{{item.id}}">
+  <template is="class_questions_{{item.layType}}" data="{{item: item,isVip:1}}"/>
+ </block>
+</view>
+<view class='tab-content' hidden='{{select==0}}'>
+<import src="../../template/class_video.wxml"/>
+<block wx:for="{{videoclass}}" wx:key="{{item.calssName}}">
+  <template is="class_video" data="{{item: item,isVip:1}}"/>
+   </block>
+</view>
+</view>

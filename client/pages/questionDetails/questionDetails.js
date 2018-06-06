@@ -1,4 +1,4 @@
-// pages/questionDetails/questionDetails.js 考卷的细节页面
+// pages/questionDetails/questionDetails.js 考卷的细节页面 
 var serviceApi = require('../../utils/serviceAPI.js');
 Page({
   
@@ -16,6 +16,7 @@ Page({
   onLoad: function (options) {
     this.commitId = options.id;
     this.getQDetail(options.id);
+    this.qbrowse(options.id)
   },
 
   /**
@@ -74,6 +75,17 @@ Page({
    */
   getQDetail:function(id){
     serviceApi.getQDetail(id).then(res=>{
+      this.data.qDetai = res.data;
+      this.setData({
+        qDetai: this.data.qDetai
+      });
+    });
+  },
+  /**
+   * 浏览记录
+   */
+  qbrowse: function (id) {
+    serviceApi.qbrowse(id,0).then(res => {
       this.data.qDetai = res.data;
       this.setData({
         qDetai: this.data.qDetai

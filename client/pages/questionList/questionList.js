@@ -15,9 +15,16 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id);
-    pullToRefresh.regist(this, config.service.qList, {
-      classId: options.id
-    });
+    if (options.isVip && options.isVip==1){
+      pullToRefresh.regist(this, config.service.getbuyTlist, {
+        qclassId: options.id
+      });
+    }else{
+      pullToRefresh.regist(this, config.service.qList, {
+        classId: options.id
+      });
+    }
+   
   },
 
   /**

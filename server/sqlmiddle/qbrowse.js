@@ -39,7 +39,7 @@ const getqbrowse = async (ctx, next) => {
   let page = ctx.request.query["page"];
   let pageSize = ctx.request.query["pageSize"];
   try {
-    const data = await mysql("qbrowse").where('openId', ctx.request.query["openId"]).limit(pageSize).offset(page * pageSize).leftJoin('QUESTION', 'qbrowse.qId', 'QUESTION.id');
+    const data = await mysql("qbrowse").where('openId', ctx.request.query["openId"]).limit(pageSize).offset(page * pageSize).leftJoin('QUESTION', 'qbrowse.tId', 'QUESTION.id');
     handleData(ctx, data);
     await next()//执行下一个中间件
   } catch (e) {

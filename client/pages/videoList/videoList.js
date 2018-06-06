@@ -15,9 +15,15 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id);
-    pullToRefresh.regist(this, config.service.videolist, {
-      classId: options.id
-    });
+    if (options.isVip && options.isVip == 1){
+      pullToRefresh.regist(this, config.service.getbuyTlist, {
+        vclassId: options.id
+      });
+    }else{
+      pullToRefresh.regist(this, config.service.videolist, {
+        classId: options.id
+      });
+    }
   },
 
   /**

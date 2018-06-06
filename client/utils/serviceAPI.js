@@ -1,5 +1,6 @@
 //服务端接口访问的封装类
 var { config, constants} = require('../config.js')
+var { formatTime } = require('./util.js')
 class serviceAPI {
   /** 
 * 获取首页数据 
@@ -181,6 +182,43 @@ class serviceAPI {
       vId: vId,
       vCId: vCId,
       progress: progress
+    });
+  }
+  /**
+   * 获取购买的题目
+   */
+  static buyTlist() {
+    return getApp().globalData.wxAPI.getRequest(config.service.buyTlist, {
+      openId: getApp().globalData.openId
+    });
+  }
+  /**
+   * 获取购买的视频
+   */
+  static buyVlist() {
+    return getApp().globalData.wxAPI.getRequest(config.service.buyVlist, {
+      openId: getApp().globalData.openId
+    });
+  }
+  /**
+ * 更新浏览题目的浏览记录
+ */
+  static qbrowse(tId, complete) {
+    return getApp().globalData.wxAPI.getRequest(config.service.qbrowse, {
+      openId: getApp().globalData.openId,
+      tId: tId,
+      time: formatTime(new Date()),
+      complete: complete
+    });
+  }
+  /**
+* 更新浏览视频的浏览记录
+*/
+  static vbrowse(vId) {
+    return getApp().globalData.wxAPI.getRequest(config.service.vbrowse, {
+      openId: getApp().globalData.openId,
+      vId: vId,
+      time: formatTime(new Date())
     });
   }
 }

@@ -1,4 +1,4 @@
-// 点击查看视频的页面
+// 点击查看视频的页面 (浏览记录++) vbrowse
 var serviceApi = require('../../utils/serviceAPI.js')
 Page({
 
@@ -147,11 +147,22 @@ Page({
     this.commitList.addNewComment(commentText);
   },
   /**
+ * 更新当前视频的阅读量
+ */
+  vbrowse: function (id) {
+    serviceApi.vbrowse(id).then(res => {
+      console.log(res);
+    }).catch(e => {
+      console.log(e);
+    })
+  },
+  /**
    * 更新当前视频的阅读量
    */
   videoPnum:function(id){
     serviceApi.videoPnum(id).then(res => {
       console.log(res);
+      this.vbrowse(id);
     }).catch(e => {
       console.log(e);
     })

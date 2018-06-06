@@ -23,7 +23,7 @@
   </navigator>
   </block>
 </view>
-<navigator url="../videoList/videoList?id={{item.classId}}">
+<navigator url="../videoList/videoList?id={{item.classId}}&isVip={{item.vip}}">
 <view class='more-video' hidden='{{!item.isMore}}'>
 查看全部
 </view>

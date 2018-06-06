@@ -22,6 +22,15 @@ class Wechat {
     return new Promise((resolve, reject) =>        wx.getUserInfo({ success: resolve, fail: reject }));
   };
 
+  /** 
+ * 获取用户信息 
+ * @return {Promise}  
+ */
+  static getLocation() {
+    return new Promise((resolve, reject) => wx.getLocation(
+      { type: 'gcj02',success: resolve, fail: reject }));
+  };
+
 /**
  * 调用异步的封装方法
  */

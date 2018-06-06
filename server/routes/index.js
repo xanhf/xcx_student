@@ -48,7 +48,9 @@ const {
   checkBuyQ,
   checkBuyV,
   buyV,
-  buyQ
+  buyQ,
+  getbuyVlist,
+  getbuyQlist
 }= require("../sqlmiddle/members.js");
 //答题记录
 const {
@@ -158,6 +160,10 @@ router.get('/getvbrowse', getvbrowse, controllers.vbrowse);
 router.get('/buyVlist', buyVlist, controllers.members);
 //获取已经购买的视频
 router.get('/buyTlist', buyTlist, controllers.members);
+//获取已经购买的套题
+router.get('/getbuyTlist', getbuyQlist, controllers.members);
+//获取已经购买的视频
+router.get('/getbuyVlist', getbuyVlist, controllers.members);
 //购买视频 
 router.get('/buyV', buyV, controllers.members);
 //购买题目
