@@ -13,9 +13,11 @@ color: black;
 .article-Introduction{
 display: flex;
 align-items: center;
+padding-bottom:20rpx
 }
 .article-product{
-  font-size: 15rpx;
+  margin-right:20rpx;
+  font-size: 25rpx;
   color: grey
 }
 .article-author{
@@ -24,11 +26,14 @@ align-items: center;
 .article-image{
   width: 100%;
   height: 350rpx;
+  margin-bottom: 30rpx;
   background-color: gray
 }
 .article-voice{
-
+  margin-bottom: 30rpx;
+display: flex;
+justify-content: center
 }
 .article-text{
-  font-size: 20rpx;
+  font-size: 25rpx;
 }

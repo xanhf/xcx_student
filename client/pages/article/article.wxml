@@ -16,7 +16,7 @@
   </view>
   <image class='article-image'></image>
   <view class='article-voice'>
-  点击音频
+  <audio class="audio" poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio>
   </view>
   <view class='article-text'>
   张三的小书包
