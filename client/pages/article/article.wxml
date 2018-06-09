@@ -1,0 +1,24 @@
+<!--文章的播放页面-->
+<view class='article-container'>
+  <view class='article-title'>
+  三十六计
+  </view>
+  <view class='article-Introduction'>
+    <view class='article-product'>
+    小明
+    </view>
+    <view class='article-product article-author'>
+    小蓝科技
+    </view>
+    <view class='article-product'>
+    今天
+    </view>
+  </view>
+  <image class='article-image'></image>
+  <view class='article-voice'>
+  点击音频
+  </view>
+  <view class='article-text'>
+  张三的小书包
+  </view>
+</view>

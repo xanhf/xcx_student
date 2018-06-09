@@ -18,7 +18,8 @@
     "pages/vhistory/vhistory",
     "pages/qhistory/qhistory",
     "pages/vip/vip",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/article/article"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

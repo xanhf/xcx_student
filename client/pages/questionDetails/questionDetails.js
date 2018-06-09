@@ -86,10 +86,6 @@ Page({
    */
   qbrowse: function (id) {
     serviceApi.qbrowse(id,0).then(res => {
-      this.data.qDetai = res.data;
-      this.setData({
-        qDetai: this.data.qDetai
-      });
     });
   },
   /**
