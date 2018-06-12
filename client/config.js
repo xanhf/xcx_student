@@ -1,5 +1,5 @@
 /**
- * 小程序配置文件
+ * 小程序配置文件 getArticleById
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
@@ -78,6 +78,8 @@ var config = {
         qbrowse: `${host}/weapp/qbrowse`,
         //视频观看记录提交 
         vbrowse: `${host}/weapp/vbrowse`,
+        // 获取文章的id getArticleById
+        getArticleById: `${host}/weapp/getArticleById`,
     }
 };
 

@@ -1,24 +1,23 @@
 <!--文章的播放页面-->
 <view class='article-container'>
   <view class='article-title'>
-  三十六计
+  {{article.title}}
   </view>
   <view class='article-Introduction'>
     <view class='article-product'>
-    小明
+    {{article.autho}}
     </view>
     <view class='article-product article-author'>
     小蓝科技
     </view>
     <view class='article-product'>
-    今天
+    {{article.time}}
     </view>
   </view>
-  <image class='article-image'></image>
+  <image class='article-image' src='{{article.image}}'></image>
   <view class='article-voice'>
-  <audio class="audio" poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio>
+  <audio class="audio" poster="{{article.aimage}}" name="{{article.atitle}}" author="{{article.autho}}" src="{{article.src}}" id="myAudio" controls loop></audio>
   </view>
-  <view class='article-text'>
-  张三的小书包
-  </view>
+  <import src="../../weparser/weparser.wxml"/>
+ <template is="weParser" data="{{ weParserData:text}}"/>
 </view>

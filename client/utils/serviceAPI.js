@@ -221,6 +221,15 @@ class serviceAPI {
       time: formatTime(new Date())
     });
   }
+  /**
+   * 获取文章的id
+   * getArticleById
+   */
+  static getArticleById(vId) {
+    return getApp().globalData.wxAPI.getRequest(config.service.getArticleById, {
+      id: vId
+    });
+  }
 }
 
 module.exports = serviceAPI; 

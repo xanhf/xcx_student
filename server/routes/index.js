@@ -63,6 +63,12 @@ const {
   getvbrowse
 } = require("../sqlmiddle/vbrowse.js");
 
+//文章相关
+const {
+  getUserArticle,
+  getArticleById
+} = require("../sqlmiddle/article.js");
+
 
 // 从 sdk 中取出中间件 
 // 这里展示如何使用 Koa 中间件完成登录态的颁发与验证
@@ -168,5 +174,9 @@ router.get('/getbuyVlist', getbuyVlist, controllers.members);
 router.get('/buyV', buyV, controllers.members);
 //购买题目
 router.get('/buyQ', buyQ, controllers.members);
+//查看文章
+router.get('/getArticleById', getArticleById, controllers.article);
+//查看自己录入的文章
+router.get('/getUserArticle', getUserArticle, controllers.article);
 
 module.exports = router

@@ -9,8 +9,9 @@
 </view>
 <view class='class-video-container'>
   <block wx:for="{{item.vList}}" wx:key="{{item.image}}">
-  <navigator url="../videoDetail/videoDetail?item={{format.objectToJson(item)}}">
-  <view class='class-video-item'>
+  <!-- <navigator url="../videoDetail/videoDetail?item={{format.objectToJson(item)}}"> -->
+  <view class='class-video-item' 
+   data-item='{{item}}'  bindtap='clickVitem'>
   <image class='class-video-image' src='{{item.image}}'>
   </image>
   <view class='class-video-item-title'>
@@ -20,7 +21,7 @@
   {{item.pnum}}人观看
   </view>
   </view>
-  </navigator>
+  <!-- </navigator> -->
   </block>
 </view>
 <navigator url="../videoList/videoList?id={{item.classId}}&isVip={{item.vip}}">
