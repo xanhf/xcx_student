@@ -80,6 +80,10 @@ var config = {
         vbrowse: `${host}/weapp/vbrowse`,
         // 获取文章的id getArticleById
         getArticleById: `${host}/weapp/getArticleById`,
+        //获取相关视频 
+        getContactV: `${host}/weapp/getContactV`,
+        //获取相关题目
+        getContactQ: `${host}/weapp/getContactQ`
     }
 };
 

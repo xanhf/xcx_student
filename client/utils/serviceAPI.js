@@ -225,9 +225,12 @@ class serviceAPI {
    * 获取文章的id
    * getArticleById
    */
-  static getArticleById(vId) {
+  static getArticleById(articleId, tId, vId) {
     return getApp().globalData.wxAPI.getRequest(config.service.getArticleById, {
-      id: vId
+      openId: getApp().globalData.openId,
+      id: vId,
+      tId: tId,
+      articleId: articleId
     });
   }
 }

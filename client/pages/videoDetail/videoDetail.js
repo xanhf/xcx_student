@@ -196,26 +196,5 @@ Page({
     }
     this.commitList.setId(this.data.title.videoList[this.data.title.select - 1].id);
     this.commitList.pullRefresh();
-  },
-  /**
-   * chakanlaoshi
-   */
-  viewTeacher:function(event){
-    if (this.data.isShowTeacher){
-      return;
-    }
-    this.data.isShowTeacher=true;
-    this.setData({
-      isShowTeacher: this.data.isShowTeacher
-    });
-  },
-  /**
-   * 关闭老师信息
-   */
-  closeT:function(event){
-    this.data.isShowTeacher = false;
-    this.setData({
-      isShowTeacher: this.data.isShowTeacher
-    });
   }
 })

@@ -30,21 +30,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (this.data.hinde){
+      pullToRefresh.regist(this, config.service.getqbrowse, {
+        openId: getApp().globalData.openId
+      });
+    }
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    this.data.hinde =true
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    this.data.hinde = false
   },
 
 

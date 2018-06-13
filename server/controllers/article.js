@@ -3,6 +3,10 @@
  */
 module.exports = async (ctx, next) => {
   if (ctx.state.$article.state == 1) {//表示数据获取成功
-    ctx.state.data = ctx.state.$article;
+    let lastData = {};
+    lastData = ctx.state.$article[0];
+    lastData.exdata = {};
+    Object.assign(lastData.exdata, ctx.state.$videofoucs.data, ctx.state.$teacherfoucs.data,ctx.state.$teacher.data);
+    ctx.state.data = lastData;
   }
 }

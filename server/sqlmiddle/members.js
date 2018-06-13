@@ -52,7 +52,7 @@ const getbuyQlist = async (ctx, next) => {
 const buyVlist = async (ctx, next) => {
  var openId =  ctx.request.query["openId"];
   try {
-    const data = await mysql("members").where('vId', '>', 0, 'openId', openId).leftJoin('videoclass', 'members.vId', 'videoclass.id').select("videoclass.className", "videoclass.classId").count('className as count').groupBy('videoclass.className' , "videoclass.classId");
+    const data = await mysql("members").where('vId', '>', 0, 'openId', openId).leftJoin('videoclass', 'members.vId', 'videoclass.id').select("videoclass.className", "videoclass.classId").count('className as count').groupBy('videoclass.className', "videoclass.classId").orderBy("videoclass.classId", 'desc');
     const clist = [];
     for (var obj of data) {
       let calssNmae = obj.className;
@@ -84,7 +84,7 @@ let countLay = 0;
 const buyTlist = async (ctx, next) => {
   var openId = ctx.request.query["openId"];
   try {
-    const data = await mysql("members").where('qId', '>', 0,'openId', openId).leftJoin('QUESTION', 'members.qId', 'QUESTION.id').select("QUESTION.className", "QUESTION.classId").count('className as count').groupBy("QUESTION.className", "QUESTION.classId");
+    const data = await mysql("members").where('qId', '>', 0, 'openId', openId).leftJoin('QUESTION', 'members.qId', 'QUESTION.id').select("QUESTION.className", "QUESTION.classId").count('className as count').groupBy("QUESTION.className", "QUESTION.classId").orderBy("QUESTION.classId", 'desc');
     const clist = [];
     for (var obj of data) {
       let calssNmae = obj.className;

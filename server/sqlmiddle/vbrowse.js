@@ -39,7 +39,7 @@ const getvbrowse = async (ctx, next) => {
   let page = ctx.request.query["page"];
   let pageSize = ctx.request.query["pageSize"];
   try {
-    const data = await mysql("vbrowse").where('openId', ctx.request.query["openId"]).limit(pageSize).offset(page * pageSize).leftJoin('videoclass', 'vbrowse.vId', 'videoclass.id');
+    const data = await mysql("vbrowse").where('openId', ctx.request.query["openId"]).limit(pageSize).offset(page * pageSize).orderBy('vbrowse.sort', 'desc').leftJoin('videoclass', 'vbrowse.vId', 'videoclass.id');
     handleData(ctx, data);
     await next()//执行下一个中间件
   } catch (e) {

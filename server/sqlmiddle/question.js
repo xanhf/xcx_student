@@ -13,7 +13,7 @@ let countLay = 0;
  */
 const getQuestiondata = async (ctx, next) => {
   try {
-    const data = await mysql("QUESTION").select("className", "classId").count('className as count').groupBy('className',"classId");
+    const data = await mysql("QUESTION").select("className", "classId").count('className as count').groupBy('className', "classId").orderBy("classId", 'desc');
     const clist=[];
     for (var obj of data){
       let calssNmae = obj.className;

@@ -7,6 +7,8 @@ module.exports = async (ctx, next) => {
   if (ctx.state.$topic.state == 1) {//表示数据获取成功
     ctx.state.data ={};
     ctx.state.data.topic = ctx.state.$topic.data;
-    ctx.state.data.qDetails = ctx.state.$qDetails.data;
+    if (ctx.state.$qDetails){
+      ctx.state.data.qDetails = ctx.state.$qDetails.data;
+    }
   }
 }

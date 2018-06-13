@@ -99,7 +99,7 @@ Page({
       })
     }else{
       wx.navigateTo({
-        url: '../article/article?id=' + item.articleId + "&vid=" + item.id,
+        url: '../article/article?id=' + item.articleId + "&vid=" + item.id + "&tId=" + item.tId,
       })
     }
   }

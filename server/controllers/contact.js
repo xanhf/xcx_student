@@ -3,6 +3,6 @@
  */
 module.exports = async (ctx, next) => {
   if (ctx.state.$contact.state == 1) {//表示数据获取成功
-    ctx.state.data = ctx.state.$contact.data;
+    ctx.state.data = ctx.state.$contact;
   }
 }

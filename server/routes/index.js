@@ -69,6 +69,13 @@ const {
   getArticleById
 } = require("../sqlmiddle/article.js");
 
+//用户上传的文章相关 
+const {
+  insertUser,
+  getUserAriticle,
+  checkUserIsRead
+} = require("../sqlmiddle/userArticle.js");
+
 
 // 从 sdk 中取出中间件 
 // 这里展示如何使用 Koa 中间件完成登录态的颁发与验证
@@ -175,8 +182,8 @@ router.get('/buyV', buyV, controllers.members);
 //购买题目
 router.get('/buyQ', buyQ, controllers.members);
 //查看文章
-router.get('/getArticleById', getArticleById, controllers.article);
+router.get('/getArticleById', judgeTFoucs, getTeacherById, judgeFoucs,getArticleById, controllers.article);
 //查看自己录入的文章
-router.get('/getUserArticle', getUserArticle, controllers.article);
+router.get('/getUserArticle', getUserArticle, controllers.articlelist);
 
 module.exports = router

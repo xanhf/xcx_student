@@ -33,7 +33,7 @@ const getUserArticle = async (ctx, next) => {
  * 查询article下面的具体的题目信息
  */
 const getArticleById = async (ctx, next) => {
-  let articleId = ctx.request.query["id"];
+  let articleId = ctx.request.query["articleId"];
   try {
     const data = await mysql("article").where('id', articleId);
     handleData(ctx, data);

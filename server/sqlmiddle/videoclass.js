@@ -12,7 +12,7 @@ function handleData(ctx, data) {
  */
 const getVideoclassdata = async (ctx, next) => {
   try {
-    const data = await mysql("videoclass").select("className", "classId").count('className as count').groupBy('className', "classId");
+    const data = await mysql("videoclass").select("className", "classId").count('className as count').groupBy('className', "classId").orderBy("classId", 'desc');
     const clist = [];
     for (var obj of data) {
       let calssNmae = obj.className;

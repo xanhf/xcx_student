@@ -15,9 +15,11 @@
 题目预览
 </view>
 </navigator>
-<view class='introduction-title border qview'>
+<navigator url='../videoList/videoList?qId={{id}}&isaboutV=1' class='introduction-title border qview'>
+<view>
 相关视频
 </view>
+</navigator>
 <navigator url='../answerRank/answerRank?id={{id}}' class='introduction-title border qview'>
 <view>
 排行榜

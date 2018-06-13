@@ -28,15 +28,19 @@ fail = function (res, isfresh){
 
   /**
    * 注册方法 传入对应页面上下文，所需要的配置项
+   * 
+   *     if (!isTwo){
+      this.ctx.data.dataList = this.dataList;//预制对象用来展示数据dataList
+            dataList: this.ctx.data.dataList
+    }
    */
  regist(context, url = "", data = {}, method = 0, pageSet = this.pageSetting, success = this.success,fail=this.fail){
     this.ctx=context;
     //初始化对象
     this.ctx.data.pullData= this.pullData;//预制对象 用来刷新ui
-    this.ctx.data.dataList = this.dataList;//预制对象用来展示数据dataList
+
     this.ctx.setData({
-      pullData: this.ctx.data.pullData,
-      dataList: this.ctx.data.dataList
+      pullData: this.ctx.data.pullData
     });
     this.pageSetting=pageSet;
     this.pullConfig.data=data;
@@ -45,10 +49,11 @@ fail = function (res, isfresh){
     this.success = success;
     this.fail = fail;
   }
+
   /**
    * 刷新的方法
    */
-  pullRefresh(){
+ pullRefresh(){
     if(this.pullData.isLoading){//正在加载
       return;
     }
@@ -147,4 +152,4 @@ fail = function (res, isfresh){
     }
   }
 }
-module.exports = new pullToRefresh(); 
+module.exports = new pullToRefresh()

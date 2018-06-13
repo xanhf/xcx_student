@@ -10,8 +10,10 @@
 <view class='video-info-pnum'>
 {{pnum}}人观看
 </view>
-<view class='video-info-teacher' bindtap='viewTeacher'>
-开讲人
+<navigator url='../questionList/questionList?vId={{id}}&isaboutQ=1'  class='video-info-teacher'>
+<view>
+相关题目
 </view>
+</navigator>
 </view>
 </template>

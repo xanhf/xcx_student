@@ -68,7 +68,7 @@ Page({
    */
   qReview:function(id){
     serviceApi.qReview(id).then(res => {
-      this.data.qItemList = res.data;
+      this.data.qItemList = res.data.topic;
       this.setData({
         qItemList: this.data.qItemList
       });

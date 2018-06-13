@@ -1,4 +1,6 @@
-/* pages/article/article.wxss */
+/* pages/article/article.wxss "../../template/modal_teacher_foucs.wxml"*/
+@import "../../template/modal_teacher_foucs.wxss";
+
 .article-container{
   padding: 20rpx;
   background: white;
@@ -36,4 +38,31 @@ justify-content: center
 }
 .article-text{
   font-size: 25rpx;
+}
+.article-introduction{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  margin-top:25rpx;
+  padding-left:50rpx;
+padding-right:50rpx;
+
+}
+.article-teacher{
+  border-radius: 80rpx;
+  height: 80rpx;
+  width: 80rpx;
+  text-align:center;
+line-height:80rpx;
+  font-size: 25rpx;
+}
+.author{
+  background-color: gold
+}
+.reader{
+  background-color: grey
+}
+.praise{
+  background-color: red
 }

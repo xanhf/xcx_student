@@ -15,16 +15,14 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id);
-    if (options.isVip && options.isVip==1){
-      pullToRefresh.regist(this, config.service.getbuyTlist, {
-        qclassId: options.id
-      });
+    this.data.options = {}
+    if (options.vId && options.isaboutQ){
+      this.data.options.vId = options.vId;
     }else{
-      pullToRefresh.regist(this, config.service.qList, {
-        classId: options.id
-      });
+      this.data.options.isVip = options.isVip;
+      this.data.options.id = options.id;
     }
-   
+    this.register()
   },
 
   /**
@@ -33,26 +31,44 @@ Page({
   onReady: function () {
     pullToRefresh.pullRefresh();
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (this.data.hinde) {
+      this.register()
+    }
   },
+
+
+register:function(){
+  if (this.data.options.isVip && this.data.options.isVip == 1) {
+    pullToRefresh.regist(this, config.service.getbuyTlist, {
+      qclassId: this.data.options.id
+    });
+  } else if (this.data.options.vId) {
+    pullToRefresh.regist(this, config.service.getContactQ, {
+      vId: this.data.options.vId
+    });
+  }else{
+    pullToRefresh.regist(this, config.service.qList, {
+      classId: this.data.options.id
+    });
+  }
+},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    this.data.hinde = true
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    this.data.hinde = false
   },
 
   /**

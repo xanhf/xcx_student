@@ -25,26 +25,29 @@ Page({
   onReady: function () {
     pullToRefresh.pullRefresh();
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (this.data.hinde) {
+      pullToRefresh.regist(this, config.service.getvbrowse, {
+        openId: getApp().globalData.openId
+      });
+    }
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    this.data.hinde = true
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    this.data.hinde = false
   },
 
   /**
@@ -66,5 +69,17 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  clickVitem: function (event) {
+    var item = event.currentTarget.dataset.item;
+    if (item.articleId <= 0) {
+      wx.navigateTo({
+        url: '../videoDetail/videoDetail?item=' + JSON.stringify(item),
+      })
+    } else {
+      wx.navigateTo({
+        url: '../article/article?id=' + item.articleId + "&vid=" + item.id,
+      })
+    }
   }
 })

@@ -110,5 +110,17 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  clickVitem: function (event) {
+    var item = event.currentTarget.dataset.item;
+    if (item.articleId <= 0) {
+      wx.navigateTo({
+        url: '../videoDetail/videoDetail?item=' + JSON.stringify(item),
+      })
+    } else {
+      wx.navigateTo({
+        url: '../article/article?id=' + item.articleId + "&vid=" + item.id + "&tId=" + item.tId,
+      })
+    }
   }
 })
