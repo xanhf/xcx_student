@@ -30,6 +30,9 @@
 <view class='article-teacher praise border' data-parise='{{exdata.focus?exdata.focus:0}}' bindtap="praiseClick">
 点赞
 </view>
+<view class='article-teacher praise border' bindtap='aboutQ'>
+问答
+</view>
 </view>
 </view>
  <import src="../../template/modal_teacher_foucs.wxml"/>

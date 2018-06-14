@@ -109,7 +109,14 @@ Page({
       console.log(e);
     })
   },
-
+  /**
+   * 跳转到相关的题目页面
+   */
+  aboutQ:function(event){
+    wx.navigateTo({
+      url: '../questionList/questionList?vId='+this.data.id+'&isaboutQ=1'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

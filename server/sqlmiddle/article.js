@@ -11,25 +11,6 @@ function handleData(ctx, data) {
 }
 
 /**
- * 查询视频相关的题
- */
-const getUserArticle = async (ctx, next) => {
-  let page = ctx.request.query["page"];
-  let pageSize = ctx.request.query["pageSize"];
-  let vId = ctx.request.query["openId"];
-  try {
-    const data = await mysql("article").where('openId', vId).limit(pageSize).offset(page * pageSize);
-    handleData(ctx, data);
-    await next()//执行下一个中间件
-  } catch (e) {
-    ctx.body = {
-      code: -1,
-      error: e && e.message ? e.message : e.toString()
-    }
-  }
-};
-
-/**
  * 查询article下面的具体的题目信息
  */
 const getArticleById = async (ctx, next) => {
@@ -47,6 +28,5 @@ const getArticleById = async (ctx, next) => {
 };
 
 module.exports = {
-  getUserArticle,
   getArticleById
 }

@@ -49,7 +49,7 @@ const getUserAriticle = async (ctx, next) => {
  * 根据文章的id和用户id查询当前用户有没有参与读
  */
 const checkUserIsRead = async (ctx, next) => {
-  let id = ctx.request.query["id"];
+  let id = ctx.request.query["articleId"];
   let openId = ctx.request.query["openId"];
   try {
     const data = await mysql("userArticle").where('openId', openId,"aId",id).limit(1);

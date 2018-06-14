@@ -65,7 +65,6 @@ const {
 
 //文章相关
 const {
-  getUserArticle,
   getArticleById
 } = require("../sqlmiddle/article.js");
 
@@ -182,8 +181,8 @@ router.get('/buyV', buyV, controllers.members);
 //购买题目
 router.get('/buyQ', buyQ, controllers.members);
 //查看文章
-router.get('/getArticleById', judgeTFoucs, getTeacherById, judgeFoucs,getArticleById, controllers.article);
+router.get('/getArticleById', judgeTFoucs, getTeacherById, checkUserIsRead, judgeFoucs,getArticleById, controllers.article);
 //查看自己录入的文章
-router.get('/getUserArticle', getUserArticle, controllers.articlelist);
+router.get('/getUserArticle', getUserAriticle, controllers.userArticle);
 
 module.exports = router
