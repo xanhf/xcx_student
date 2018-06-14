@@ -19,7 +19,8 @@
     "pages/qhistory/qhistory",
     "pages/vip/vip",
     "pages/about/about",
-    "pages/article/article"
+    "pages/article/article",
+    "pages/userarticle/userarticle"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

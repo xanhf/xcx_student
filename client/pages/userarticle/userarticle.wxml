@@ -1,0 +1,9 @@
+<!--pages/userarticle/userarticle.wxml 用户参与的相关录制-->
+<view class='userarticle-list'>
+  <import src="../../template/article_item_list.wxml" />
+  <block wx:for="{{dataList}}" wx:key="{{item.images}}">
+    <template is="article_item_list" data="{{item}}" />
+  </block>
+<import src="../../template/refresh_bottom.wxml" />
+     <template is="refresh-bottom" data="{{...pullData}}" />
+</view>

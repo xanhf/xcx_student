@@ -31,7 +31,7 @@
 点赞
 </view>
 <view class='article-teacher praise border' bindtap='aboutQ'>
-问答
+答题
 </view>
 </view>
 </view>

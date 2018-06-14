@@ -1,0 +1,3 @@
+/* pages/userarticle/userarticle.wxss  */
+@import "../../template/refresh_bottom.wxss";
+@import "../../template/article_item_list.wxss";

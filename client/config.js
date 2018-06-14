@@ -83,7 +83,9 @@ var config = {
         //获取相关视频 
         getContactV: `${host}/weapp/getContactV`,
         //获取相关题目
-        getContactQ: `${host}/weapp/getContactQ`
+        getContactQ: `${host}/weapp/getContactQ`,
+        //获取用户使用的 
+        getUserAriticle: `${host}/weapp/getUserAriticle`,
     }
 };
 
