@@ -1,7 +1,0 @@
-/* pages/answerRank/answerRank.wxss */
-@import "../../template/answer_rank_item.wxss";
-@import "../../template/refresh_bottom.wxss";
-.rank-a{
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
-}

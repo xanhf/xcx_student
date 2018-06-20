@@ -1,9 +1,0 @@
-@import "./question_item_1.wxss";
-.scrool-class-1{
-  width: 100%;
-  white-space: nowrap;
-}
-.class-container_1{
-  margin-top: 30rpx;
-  padding-top: 15rpx;
-}

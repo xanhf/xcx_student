@@ -1,9 +1,0 @@
-<!--pages/questionList/questionList.wxml 分类列表页面-->
-<view class='question-list'>
-  <import src="../../template/questions_item.wxml" />
-  <block wx:for="{{dataList}}" wx:key="{{item.images}}">
-    <template is="questions_item" data="{{...item}}" />
-  </block>
-<import src="../../template/refresh_bottom.wxml" />
-     <template is="refresh-bottom" data="{{...pullData}}" />
-</view>

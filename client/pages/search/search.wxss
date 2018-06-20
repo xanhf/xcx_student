@@ -1,8 +1,0 @@
-/* pages/search/search.wxss */
-@import "../../template/class_question_0.wxss";
-@import "../../template/class_question_1.wxss";
-@import "../../template/class_question_2.wxss";
-@import "../../template/class_video.wxss";
-.tab-content {
-    margin-top: 80rpx;
-}

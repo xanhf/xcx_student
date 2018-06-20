@@ -1,3 +1,0 @@
-/* pages/vhistory/vhistory.wxss */
-@import "../../template/video_list_item.wxss";
-@import "../../template/refresh_bottom.wxss";

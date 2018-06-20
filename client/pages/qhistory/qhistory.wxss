@@ -1,3 +1,0 @@
-/* pages/qhistory/qhistory.wxss */
-@import "../../template/questions_item.wxss";
-@import "../../template/refresh_bottom.wxss";

@@ -1,3 +1,0 @@
-<view class='container'>
-<component-slid-x-home imageUrls="{{imgUrls}}" ></component-slid-x-home>
-</view>

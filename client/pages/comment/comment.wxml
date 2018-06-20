@@ -1,8 +1,0 @@
-<!--评论的页面-->
-<view>
-<textarea class='comment-des border' bindinput='commentDes' placeholder='请输入评论内容'>
-</textarea>
-<view class='comment-submmit' bindtap='submmit'>
-评论
-</view>
-</view>
